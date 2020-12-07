@@ -58,9 +58,17 @@ class SaldoAwalController extends Controller
         // return json_encode($sa);
 
         $bulan = $sa->periode->format('n');
-        $fromDate = Carbon::createFromDate($ta, $bulan-1, 1)->format('Y-m-d');
-        $tillDate = Carbon::createFromDate($ta, $bulan-1, 1)->endOfMonth()->format('Y-m-d');
-
+        // return $bulan;
+        if ($bulan==1) {
+            # code...
+            $fromDate = Carbon::createFromDate($ta, 12, 1)->format('Y-m-d');
+            $tillDate = Carbon::createFromDate($ta, 12, 1)->endOfMonth()->format('Y-m-d');
+        }
+        else{
+            $fromDate = Carbon::createFromDate($ta, $bulan-1, 1)->format('Y-m-d');
+            $tillDate = Carbon::createFromDate($ta, $bulan-1, 1)->endOfMonth()->format('Y-m-d');
+        }
+        
         if (($bulan-1)==1) {
             $saldo_awal = $sekolah->pendapatans()
             ->where('sumber', 'SILPA BOS')

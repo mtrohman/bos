@@ -63,6 +63,31 @@
                                                 </td>
                                             </tr>
                                         @endfor
+                                            <tr>
+                                                @php
+                                                    $period= \Carbon\Carbon::createFromFormat("!Y-n-j", $ta."-".$i."-1");
+                                                    $ada_saldo_awal= $saldoawal->contains('periode', $period);
+                                                    $saldo_bank_awal_bln= $saldoawal->where('periode',$period)->sum('saldo_bank'); 
+                                                    $saldo_tunai_awal_bln= $saldoawal->where('periode',$period)->sum('saldo_tunai'); 
+                                                @endphp
+                                                <td>{{($i-1)}}</td>
+                                                <td>{{$period->locale('id_ID')->isoFormat('LL')}}</td>
+                                                <td align="right">{{FormatUang($saldo_bank_awal_bln)}}</td>
+                                                <td align="right">{{FormatUang($saldo_tunai_awal_bln)}}</td>
+                                                <td>
+                                                    @php
+                                                        if ($ada_saldo_awal) {
+                                                            $id_sa= $saldoawal->firstWhere('periode',$period)->id;
+                                                            $urlhitung= route('sekolah.saldoawal.hitung', ['id' => $id_sa]);
+                                                            echo RenderTombol("success", $urlhitung, "Hitung Ulang");
+                                                        }
+                                                        else{
+                                                            $urlkalkulasi= route('sekolah.saldoawal.kalkulasi', ['periode' => $period->format('Y-m-d')]);
+                                                            echo RenderTombol("warning", $urlkalkulasi, "Kalkulasi");
+                                                        }
+                                                    @endphp
+                                                </td>
+                                            </tr>
                                     </tbody>
                                     <tfoot>
                                         <tr>

@@ -721,8 +721,11 @@ class LaporanController extends Controller
             for ($j=1; $j <= 12 ; $j++) {
                 
                 if ($j==12) {
-                    $saldotunai= 0;
-                    $saldobank= 0;
+                    $fromDate = Carbon::createFromDate(($ta+1), 1, 1)->format('Y-m-d');
+                    $saldo_akhir = $item->saldo_awals()
+                    ->where('ta', $ta)->where('periode', $fromDate)->get();
+                    $saldobank = $saldo_akhir->sum('saldo_bank');
+                    $saldotunai = $saldo_akhir->sum('saldo_tunai');
                 }
                 else{
                     $fromDate = Carbon::createFromDate($ta, ($j+1), 1)->format('Y-m-d');

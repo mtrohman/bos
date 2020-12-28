@@ -320,60 +320,6 @@ Route::group([
     Route::get('/belanjapersediaan', 'Sekolah\BelanjaPersediaanController@index')->name('sekolah.belanjapersediaan.index');
     // End Belanja Persediaan Th Berjalan
 
-    // Belanja Th Lalu
-    // Route::get('/belanja', 'Sekolah\BelanjaController@index')->name('sekolah.belanja.index');
-
-    // Route::get('/belanja/create', 'Sekolah\BelanjaController@create')->name('sekolah.belanja.create');
-
-    // Route::post('/belanja/store', 'Sekolah\BelanjaController@store')->name('sekolah.belanja.store');
-
-    // Route::get('/belanja/edit/{id}', 'Sekolah\BelanjaController@edit')->name('sekolah.belanja.edit');
-
-    // Route::post('/belanja/update/{id}', 'Sekolah\BelanjaController@update')->name('sekolah.belanja.update');
-
-    // Route::get('/belanja/destroy/{id}', 'Sekolah\BelanjaController@destroy')->name('sekolah.belanja.destroy');
-
-    // Route::get('/belanja/a2/{id}', 'Sekolah\BelanjaController@a2')->name('sekolah.belanja.a2');
-
-    // Route::get('/belanja/modal/{id}', 'Sekolah\BelanjaController@modal')->name('sekolah.belanja.modal');
-
-    // Route::get('/belanja/modal/{id}/create', 'Sekolah\BelanjaController@createmodal')->name('sekolah.belanja.createmodal');
-
-    // Route::post('/belanja/modal/{id}/store', 'Sekolah\BelanjaController@storemodal')->name('sekolah.belanja.storemodal');
-
-    // Route::get('/belanja/modal/{id}/edit/{modal_id}', 'Sekolah\BelanjaController@editmodal')->name('sekolah.belanja.editmodal');
-
-    // Route::post('/belanja/modal/{id}/update/{modal_id}', 'Sekolah\BelanjaController@updatemodal')->name('sekolah.belanja.updatemodal');
-
-    // Route::get('/belanja/modal/{id}/destroy/{modal_id}', 'Sekolah\BelanjaController@destroymodal')->name('sekolah.belanja.destroymodal');
-
-    // Route::get('/belanja/getmodal/{id}', 'Sekolah\BelanjaController@getmodal')->name('sekolah.belanja.getmodal');
-
-    // Route::get('/belanja/persediaan/{id}', 'Sekolah\BelanjaController@persediaan')->name('sekolah.belanja.persediaan');
-
-    // Route::get('/belanja/persediaan/{id}/create', 'Sekolah\BelanjaController@createpersediaan')->name('sekolah.belanja.createpersediaan');
-
-    // Route::post('/belanja/persediaan/{id}/store', 'Sekolah\BelanjaController@storepersediaan')->name('sekolah.belanja.storepersediaan');
-
-    // Route::get('/belanja/persediaan/{id}/edit/{persediaan_id}', 'Sekolah\BelanjaController@editpersediaan')->name('sekolah.belanja.editpersediaan');
-
-    // Route::post('/belanja/persediaan/{id}/update/{persediaan_id}', 'Sekolah\BelanjaController@updatepersediaan')->name('sekolah.belanja.updatepersediaan');
-
-    // Route::get('/belanja/persediaan/{id}/destroy/{persediaan_id}', 'Sekolah\BelanjaController@destroypersediaan')->name('sekolah.belanja.destroypersediaan');
-
-    // Route::get('/belanja/getpersediaan/{id}', 'Sekolah\BelanjaController@getpersediaan')->name('sekolah.belanja.getpersediaan');
-
-
-    // // End Belanja Th Lalu
-
-    // // Start Belanja Modal Th Lalu
-    Route::get('/belanjamodal-thlalu', 'Sekolah\BelanjaModalThlaluController@index')->name('sekolah.belanjamodal-thlalu.index');
-    // // End Belanja Modal Th Lalu
-
-    // // Start Belanja Persediaan Th Lalu
-    // Route::get('/belanjapersediaan', 'Sekolah\BelanjaPersediaanController@index')->name('sekolah.belanjapersediaan.index');
-    // // End Belanja Persediaan Th Lalu
-
     // Start Laporan
     Route::get('/laporan/realisasi', 'Sekolah\LaporanController@realisasi')->name('sekolah.laporan.realisasi');
 
@@ -411,9 +357,9 @@ Route::group([
 
     Route::post('/proses/persediaan', 'Sekolah\LaporanController@proses_persediaan')->name('sekolah.proses.persediaan');
 
-    // Route::get('/laporan/persediaantahun', 'Sekolah\LaporanController@persediaan_tahun')->name('sekolah.laporan.persediaantahun');
+    Route::get('/laporan/persediaantahun', 'Sekolah\LaporanController@persediaan_tahun')->name('sekolah.laporan.persediaantahun');
 
-    // Route::post('/proses/persediaantahun', 'Sekolah\LaporanController@proses_persediaan_tahun')->name('sekolah.proses.persediaantahun');
+    Route::post('/proses/persediaantahun', 'Sekolah\LaporanController@proses_persediaan_tahun')->name('sekolah.proses.persediaantahun');
 
 
     Route::get('/laporan/bku', 'Sekolah\LaporanController@bku')->name('sekolah.laporan.bku');

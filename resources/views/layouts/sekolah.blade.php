@@ -278,9 +278,9 @@
                                         {{-- <li>
                                             <a href="{{ route('sekolah.laporan.persediaan') }}" class="menu-item">Belanja Persediaan</a>
                                         </li> --}}
-                                        {{-- <li>
+                                        <li>
                                             <a href="{{ route('sekolah.laporan.persediaantahun') }}" class="menu-item">Belanja Persediaan</a>
-                                        </li> --}}
+                                        </li>
                                         <li>
                                             <a href="{{ route('sekolah.laporan.bku') }}" class="menu-item">BKU</a>
                                         </li>
@@ -328,10 +328,18 @@
                                     </ul>
                                 </li> --}}
 
-                                {{-- <li class="has-sub">
+                                <li class="has-sub">
                                     <a href="javascript:void(0)" class="menu-item">Th Lalu</a>
                                     <ul class="menu-content">
-                                        
+                                        {{-- <li>
+                                            <a href="Lap Realisasi" class="menu-item">Lap Realisasi</a>
+                                        </li>
+                                        <li>
+                                            <a href="SPTJ" class="menu-item">SPTJ</a>
+                                        </li>
+                                        <li>
+                                            <a href="SPTMH" class="menu-item">SPTMH</a>
+                                        </li> --}}
                                         <li>
                                             <a href="#" class="menu-item">K7 Provinsi</a>
                                         </li>
@@ -344,10 +352,12 @@
                                         <li>
                                             <a href="#" class="menu-item">Belanja Persediaan</a>
                                         </li>
-                                        
+                                        {{-- <li>
+                                            <a href="BKU" class="menu-item">BKU</a>
+                                        </li> --}}
                                         
                                     </ul>
-                                </li> --}}
+                                </li>
                             </ul>
                         </li>
                         <li>

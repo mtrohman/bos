@@ -93,9 +93,9 @@
                                 <li>
                                     <a href="{{ route('sekolah.kegiatan.index') }}" class="menu-item">Data Kegiatan</a>
                                 </li>
-                                <li>
+                                {{-- <li>
                                     <a href="{{ route('sekolah.barangpersediaan.index') }}" class="menu-item">Barang Persediaan</a>
-                                </li>
+                                </li> --}}
                             </ul>
                         </li>
                         <li class="has-sub nav-item">
@@ -144,25 +144,22 @@
                                 <li>
                                     <a href="{{ route('sekolah.kas.penerimaan') }}" class="menu-item">Penerimaan Dana</a>
                                 </li>
-                                <li>
+                               {{--  <li>
                                     <a href="{{ route('sekolah.trxkas.index') }}" class="menu-item">Transaksi Kas</a>
-                                </li>
-                                <li>
+                                </li> --}}
+                                {{-- <li>
                                     <a href="{{ route('sekolah.kas.saldolalu') }}" class="menu-item">Saldo Th Lalu</a>
-                                </li>
+                                </li> --}}
                                 <li>
                                     <a href="{{ route('sekolah.kas.saldo') }}" class="menu-item">Saldo Kas</a>
                                 </li>
                                 <li>
                                     <a href="{{ route('sekolah.saldoawal.index') }}" class="menu-item">Saldo Awal</a>
                                 </li>
-
-                                {{-- <li>
-                                    <a href="#" class="menu-item">Saldo Awal</a>
-                                </li> --}}
                             </ul>
                         </li>
-                        <li class="has-sub nav-item">
+
+                        {{-- <li class="has-sub nav-item">
                             <a href="javascript:void(0)">
                                 <i class="ft-shopping-cart"></i>
                                 <span data-i18n="" class="menu-title">
@@ -185,21 +182,6 @@
                                     </ul>
                                 </li>
 
-                                {{-- <li class="has-sub">
-                                    <a href="javascript:void(0)" class="menu-item">Belanja Perubahan</a>
-                                    <ul class="menu-content">
-                                        <li>
-                                            <a href="#belanja" class="menu-item">Data Belanja</a>
-                                        </li>
-                                        <li>
-                                            <a href="#belanjapersediaan" class="menu-item">Data Persediaan</a>
-                                        </li>
-                                        <li>
-                                            <a href="#belanjamodal" class="menu-item">Data Belanja Modal</a>
-                                        </li>
-                                    </ul>
-                                </li> --}}
-
                                 <li class="has-sub">
                                     <a href="javascript:void(0)" class="menu-item">Belanja Th Lalu</a>
                                     <ul class="menu-content">
@@ -215,8 +197,9 @@
                                     </ul>
                                 </li>
                             </ul>
-                        </li>
-                        <li class="has-sub nav-item">
+                        </li> --}}
+
+                        {{-- <li class="has-sub nav-item">
                             <a href="javascript:void(0)">
                                 <i class="ft-package"></i>
                                 <span data-i18n="" class="menu-title">
@@ -230,17 +213,11 @@
                                 <li>
                                     <a href="{{ route('sekolah.persediaan.penggunaan') }}" class="menu-item">Penggunaan</a>
                                 </li>
-                                {{-- <li>
-                                    <a href="{{ route('sekolah.persediaan.penyesuaian') }}" class="menu-item">Penyesuaian</a>
-                                </li> --}}
-
-                                {{-- <li>
-                                    <a href="#" class="menu-item">Stok Awal</a>
-                                </li> --}}
+                                
                             </ul>
-                        </li>
+                        </li> --}}
 
-                        <li class="has-sub nav-item">
+                        {{-- <li class="has-sub nav-item">
                             <a href="javascript:void(0)">
                                 <i class="ft-file-text"></i>
                                 <span data-i18n="" class="menu-title">
@@ -275,9 +252,6 @@
                                         <li>
                                             <a href="{{ route('sekolah.laporan.modal') }}" class="menu-item">Belanja Modal</a>
                                         </li>
-                                        {{-- <li>
-                                            <a href="{{ route('sekolah.laporan.persediaan') }}" class="menu-item">Belanja Persediaan</a>
-                                        </li> --}}
                                         <li>
                                             <a href="{{ route('sekolah.laporan.persediaantahun') }}" class="menu-item">Belanja Persediaan</a>
                                         </li>
@@ -296,70 +270,9 @@
                                         
                                     </ul>
                                 </li>
-                                
-                                {{-- <li class="has-sub">
-                                    <a href="javascript:void(0)" class="menu-item">Perubahan</a>
-                                    <ul class="menu-content">
-                                        <li>
-                                            <a href="#" class="menu-item">Lap Realisasi</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="menu-item">SPTJ</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="menu-item">SPTMH</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="menu-item">K7 Provinsi</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="menu-item">K7 Kabupaten</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="menu-item">Belanja Modal</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="menu-item">Belanja Persediaan</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="menu-item">BKU</a>
-                                        </li>
-                                        
-                                    </ul>
-                                </li> --}}
 
-                                <li class="has-sub">
-                                    <a href="javascript:void(0)" class="menu-item">Th Lalu</a>
-                                    <ul class="menu-content">
-                                        {{-- <li>
-                                            <a href="Lap Realisasi" class="menu-item">Lap Realisasi</a>
-                                        </li>
-                                        <li>
-                                            <a href="SPTJ" class="menu-item">SPTJ</a>
-                                        </li>
-                                        <li>
-                                            <a href="SPTMH" class="menu-item">SPTMH</a>
-                                        </li> --}}
-                                        <li>
-                                            <a href="#" class="menu-item">K7 Provinsi</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="menu-item">K7 Kabupaten</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="menu-item">Belanja Modal</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="menu-item">Belanja Persediaan</a>
-                                        </li>
-                                        {{-- <li>
-                                            <a href="BKU" class="menu-item">BKU</a>
-                                        </li> --}}
-                                        
-                                    </ul>
-                                </li>
                             </ul>
-                        </li>
+                        </li> --}}
                         <li>
                             <a href="{{ route('logout') }}" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">

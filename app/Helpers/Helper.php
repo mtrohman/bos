@@ -66,6 +66,14 @@ if (!function_exists('AkhirTriwulan')) {
     }
 }
 
+if (!function_exists('GetCaturwulan')) {
+    function GetCaturwulan($stringtanggal){
+        $bln = date("m",strtotime($stringtanggal));
+        $caturwulan = $bln >= 1 && $bln <= 4 ? 1 : ($bln >= 5 && $bln <= 8 ? 2 : 3);
+        return $caturwulan;
+    }
+}
+
 if (!function_exists('AwalCaturwulan')) {
     function AwalCaturwulan($caturwulan, $tahun) {
         $bulan = ( ($caturwulan-1) * 4 ) + 1;

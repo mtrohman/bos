@@ -151,31 +151,31 @@ select[readonly].select2-hidden-accessible + .select2-container .select2-selecti
 
                                             <div class="row">
                                                 <div class="form-group col-12 mb-1">
-                                                    <label class="m-0" for="alokasi_tw1">Alokasi Triwulan 1</label>
+                                                    <label class="m-0" for="alokasi_tw1">Alokasi Caturwulan 1</label>
                                                     <input type="text" id="alokasi_tw1" class="form-control rupiah" name="alokasi_tw1" required value="{{ (isset($rka))? str_replace(".",",", $rka->alokasi_tw1) : '' }}">
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="form-group col-12 mb-1">
-                                                    <label class="m-0" for="alokasi_tw2">Alokasi Triwulan 2</label>
+                                                    <label class="m-0" for="alokasi_tw2">Alokasi Caturwulan 2</label>
                                                     <input type="text" id="alokasi_tw2" class="form-control rupiah" name="alokasi_tw2" required value="{{ (isset($rka))? str_replace(".",",", $rka->alokasi_tw2) : '' }}">
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="form-group col-12 mb-1">
-                                                    <label class="m-0" for="alokasi_tw3">Alokasi Triwulan 3</label>
+                                                    <label class="m-0" for="alokasi_tw3">Alokasi Caturwulan 3</label>
                                                     <input type="text" id="alokasi_tw3" class="form-control rupiah" name="alokasi_tw3" required value="{{ (isset($rka))? str_replace(".",",", $rka->alokasi_tw3) : '' }}">
                                                 </div>
                                             </div>
 
-                                            <div class="row">
+                                            {{-- <div class="row">
                                                 <div class="form-group col-12 mb-1">
                                                     <label class="m-0" for="alokasi_tw4">Alokasi Triwulan 4</label>
                                                     <input type="text" id="alokasi_tw4" class="form-control rupiah" name="alokasi_tw4" required value="{{ (isset($rka))? str_replace(".",",", $rka->alokasi_tw4) : '' }}">
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                         
                                         </div>
 
@@ -399,7 +399,7 @@ select[readonly].select2-hidden-accessible + .select2-container .select2-selecti
         var alokasi_tw1= parseFloat($("#alokasi_tw1").inputmask('unmaskedvalue').replace(",","."));
         var alokasi_tw2= parseFloat($("#alokasi_tw2").inputmask('unmaskedvalue').replace(",","."));
         var alokasi_tw3= parseFloat($("#alokasi_tw3").inputmask('unmaskedvalue').replace(",","."));
-        var alokasi_tw4= parseFloat($("#alokasi_tw4").inputmask('unmaskedvalue').replace(",","."));
+        var alokasi_tw4= 0;//parseFloat($("#alokasi_tw4").inputmask('unmaskedvalue').replace(",","."));
         // alert(harga_satuan);
         $("#jumlah").val(jumlah);
 

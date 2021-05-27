@@ -25,7 +25,7 @@ class KodeRekening extends Model
     }
 
     public function subrekening(){
-        return $this->hasMany('App\KodeRekening', 'parent_id');
+        return $this->hasMany('App\KodeRekening', 'parent_id')->where('active',1);
     }
 
 

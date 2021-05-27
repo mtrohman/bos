@@ -16,7 +16,7 @@ class KodeRekeningController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        $parentRekenings = KodeRekening::where('parent_id',NULL)->get();
+        $parentRekenings = KodeRekening::where('parent_id',NULL)->where('active',1)->get();
         return view('admin.master.koderekening', compact('parentRekenings'));
     }
 

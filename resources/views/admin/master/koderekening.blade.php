@@ -49,7 +49,7 @@ body { background-color:#fafafa; font-family:'Open Sans';}
                             <table id="tree-table" class="table table-hover table-bordered">
                                 <th width="15%">Kode Rekening</th>
                                 <th>Nama Rekening</th>
-                                <th width="15%">Pilihan</th>
+                                <th width="15%" class="d-none">Pilihan</th>
                                 <tbody>
                                     @foreach($parentRekenings as $rekening)
                                         <tr data-id="{{$rekening->id}}" data-nama_rekening="{{$rekening->nama_rekening}}" data-kode_rekening="{{$rekening->kode_rekening}}" data-parent="0" data-level="1">
@@ -59,7 +59,7 @@ body { background-color:#fafafa; font-family:'Open Sans';}
                                             <td>
                                                 {{$rekening->nama_rekening}}
                                             </td>
-                                            <td>
+                                            <td class="d-none">
                                                 Tambah Edit
                                                 @if(empty(count($rekening->subrekening)))
                                                     Delete
@@ -68,7 +68,7 @@ body { background-color:#fafafa; font-family:'Open Sans';}
                                         </tr>
                                         @if(count($rekening->subrekening))
                                             @include('admin.master.subRekeningView',['subrekenings' => $rekening->subrekening, 'dataParent' => $rekening->id , 'kodeParent'=> $rekening->kode_rekening, 'dataLevel' => 1])
-                                        @endif      
+                                        @endif
                                     @endforeach
                                 </tbody>
                             </table>

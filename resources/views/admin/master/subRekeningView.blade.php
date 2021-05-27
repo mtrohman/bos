@@ -6,7 +6,7 @@
             <td>
             	{{$subrekening->nama_rekening}}
             </td>
-            <td>
+            <td class="d-none">
             	Edit
             	@if(empty(count($subrekening->subrekening)))
             		Delete

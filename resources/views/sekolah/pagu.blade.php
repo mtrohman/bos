@@ -26,16 +26,16 @@
                                             <th>No</th>
                                             <th>Ta</th>
                                             <th>Pagu</th>
-                                            <th>Penggunaan TW1</th>
-                                            <th>Penggunaan TW2</th>
-                                            <th>Penggunaan TW3</th>
-                                            <th>Penggunaan TW4</th>
+                                            <th>Penggunaan CW1</th>
+                                            <th>Penggunaan CW2</th>
+                                            <th>Penggunaan CW3</th>
+{{--                                            <th>Penggunaan TW4</th>--}}
                                             <th>Sisa</th>
                                             <th>Pilihan</th>
                                         </tr>
                                     </thead>
                                 </table>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -64,13 +64,13 @@
                 { responsivePriority: 4, targets: 7 },
             ],
             columns: [
-                { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false}, 
-                { data: 'ta', name: 'ta' },     
+                { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false},
+                { data: 'ta', name: 'ta' },
                 { data: 'pagu', name: 'pagu' },
                 { data: 'penggunaan_tw1', name: 'penggunaan_tw1' },
                 { data: 'penggunaan_tw2', name: 'penggunaan_tw2' },
                 { data: 'penggunaan_tw3', name: 'penggunaan_tw3' },
-                { data: 'penggunaan_tw4', name: 'penggunaan_tw4' },
+                // { data: 'penggunaan_tw4', name: 'penggunaan_tw4' },
                 { data: 'sisa', name: 'sisa' },
                 { data: 'action', name: 'action'}
             ]

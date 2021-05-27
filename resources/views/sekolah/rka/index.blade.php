@@ -43,10 +43,10 @@
                                             <th>Satuan</th>
                                             <th>Harga</th>
                                             <th>Jumlah</th>
-                                            <th>TW1</th>
-                                            <th>TW2</th>
-                                            <th>TW3</th>
-                                            <th>TW4</th>
+                                            <th>CW1</th>
+                                            <th>CW2</th>
+                                            <th>CW3</th>
+{{--                                            <th>TW4</th>--}}
                                             <th>Pilihan</th>
                                         </tr>
                                     </thead>
@@ -63,15 +63,15 @@
                                             <th>Satuan</th>
                                             <th>Harga</th>
                                             <th>Jumlah</th>
-                                            <th>TW1</th>
-                                            <th>TW2</th>
-                                            <th>TW3</th>
-                                            <th>TW4</th>
+                                            <th>CW1</th>
+                                            <th>CW2</th>
+                                            <th>CW3</th>
+{{--                                            <th>TW4</th>--}}
                                             <th>Pilihan</th>
                                         </tr>
                                     </tfoot>
                                 </table>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -105,8 +105,8 @@
                 { responsivePriority: 3, targets: 5 },
             ],
             columns: [
-                { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false}, 
-                { data: 'ta', name: 'ta' }, 
+                { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false},
+                { data: 'ta', name: 'ta' },
                 { data: 'program.nama_program', name: 'program.nama_program' },
                 { data: 'kegiatan.uraian', name: 'kegiatan.uraian' },
                 { data: 'kp.kode_komponen', name: 'kp.kode_komponen' },
@@ -119,7 +119,7 @@
                 { data: 'alokasi_tw1', name: 'alokasi_tw1' },
                 { data: 'alokasi_tw2', name: 'alokasi_tw2' },
                 { data: 'alokasi_tw3', name: 'alokasi_tw3' },
-                { data: 'alokasi_tw4', name: 'alokasi_tw4' },
+                // { data: 'alokasi_tw4', name: 'alokasi_tw4' },
                 { data: 'action', name: 'action', orderable: false, searchable: false},
             ],
             initComplete: function () {
@@ -143,7 +143,7 @@
         });
 
         // $('#tabelRka').on( 'draw.dt', function () {
-            
+
         // } );
     });
 

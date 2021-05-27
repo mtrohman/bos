@@ -22,7 +22,7 @@ class SelectDataController extends Controller
             ->orWhere('nama_program', 'like', '%' . $search . '%')
             ->orderBy('kode_program')
             ->paginate(5);
-        
+
         return response()->json(['items' => $data->toArray()['data'], 'pagination' => $data->nextPageUrl() ? true : false]);
     }
 
@@ -33,7 +33,7 @@ class SelectDataController extends Controller
             ->where('nama_kecamatan', 'like', '%' . $search . '%')
             ->orderBy('id')
             ->paginate(5);
-        
+
         return response()->json(['items' => $data->toArray()['data'], 'pagination' => $data->nextPageUrl() ? true : false]);
     }
 
@@ -48,7 +48,7 @@ class SelectDataController extends Controller
         	])
             ->orderBy('id')
             ->paginate(5);
-        
+
         return response()->json(['items' => $data->toArray()['data'], 'pagination' => $data->nextPageUrl() ? true : false]);
     }
 
@@ -60,7 +60,7 @@ class SelectDataController extends Controller
             ->orWhere('nama_komponen', 'like', '%' . $search . '%')
             ->orderBy('kode_komponen')
             ->paginate(5);
-        
+
         return response()->json(['items' => $data->toArray()['data'], 'pagination' => $data->nextPageUrl() ? true : false]);
     }
 
@@ -71,11 +71,12 @@ class SelectDataController extends Controller
         ->with('parent')
         // $data = KodeRekening::select(['id', 'kode_komponen', 'nama_komponen'])
             ->where('nama_rekening', 'like', '%' . $search . '%')
+            ->where('active',1)
         //     ->orWhere('nama_komponen', 'like', '%' . $search . '%')
             ->orderBy('parent_id')
             ->paginate(5);
-        
-        return response()->json(['items' => $data->toArray()['data'], 'pagination' => $data->nextPageUrl() ? true : false]);	
+
+        return response()->json(['items' => $data->toArray()['data'], 'pagination' => $data->nextPageUrl() ? true : false]);
 	}
 
     public function selectBarangPersediaan(Request $request)
@@ -89,7 +90,7 @@ class SelectDataController extends Controller
             ])
             ->orderBy('id')
             ->paginate(5);
-        
+
         return response()->json(['items' => $data->toArray()['data'], 'pagination' => $data->nextPageUrl() ? true : false]);
     }
 
@@ -103,10 +104,10 @@ class SelectDataController extends Controller
                     ->where('kode_barang', 'like', '%' . $search . '%')
                     ->orWhere('nama_barang', 'like', '%' . $search . '%');
             })
-            
+
             ->orderBy('kode_barang')
             ->paginate(5);
-        
+
         return response()->json(['items' => $data->toArray()['data'], 'pagination' => $data->nextPageUrl() ? true : false]);
     }
 }

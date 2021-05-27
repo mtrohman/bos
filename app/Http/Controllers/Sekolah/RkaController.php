@@ -42,7 +42,7 @@ class RkaController extends Controller
             ->addColumn('action', function(Rka $rka) {
                 $urledit= route('sekolah.rka.edit', ['id' => $rka->id]);
                 $urlhapus= route('sekolah.rka.destroy', ['id' => $rka->id]);
-                
+
                 if (!(Auth::user()->kunci_rka)) {
                     # code...
                     return RenderTombol("success", $urledit, "Edit")." ".RenderTombol("danger confirmation", $urlhapus, "Hapus");
@@ -53,13 +53,13 @@ class RkaController extends Controller
             })
             ->editColumn('harga_satuan', '{{FormatMataUang($harga_satuan)}}')
             ->editColumn('jumlah', '{{FormatMataUang($jumlah)}}')
-            
+
             ->editColumn('alokasi_tw1', '{{FormatMataUang($alokasi_tw1)}}')
             ->editColumn('alokasi_tw2', '{{FormatMataUang($alokasi_tw2)}}')
             ->editColumn('alokasi_tw3', '{{FormatMataUang($alokasi_tw3)}}')
-            ->editColumn('alokasi_tw4', '{{FormatMataUang($alokasi_tw4)}}')
+//            ->editColumn('alokasi_tw4', '{{FormatMataUang($alokasi_tw4)}}')
             ->editColumn('rekening.nama_rekening', function(Rka $rka) {
-                return 
+                return
                     $rka->rekening->parent->kode_rekening.".".
                     $rka->rekening->kode_rekening." - ".
                     $rka->rekening->nama_rekening;
@@ -98,16 +98,16 @@ class RkaController extends Controller
         $alokasi_tw2 = floatval(str_replace(",",".",$request->alokasi_tw2));
         $alokasi_tw3 = floatval(str_replace(",",".",$request->alokasi_tw3));
         $alokasi_tw4 = floatval(str_replace(",",".",$request->alokasi_tw4));
-        
+
         if ($jumlah == ($alokasi_tw1 + $alokasi_tw2 + $alokasi_tw3 + $alokasi_tw4)) {
             // return json_encode($pagus);
             /*if (
                 ($alokasi_tw1 + $pagu->penggunaan_tw1) <= (0.2 * $pagu->pagu) &&
                 ($alokasi_tw2 + $pagu->penggunaan_tw2) <= (0.4 * $pagu->pagu) &&
                 ($alokasi_tw3 + $pagu->penggunaan_tw3) <= (0.2 * $pagu->pagu) &&
-                ($alokasi_tw4 + $pagu->penggunaan_tw4) <= (0.2 * $pagu->pagu)    
-            )*/ 
-            
+                ($alokasi_tw4 + $pagu->penggunaan_tw4) <= (0.2 * $pagu->pagu)
+            )*/
+
             // if( ($jumlah + $pagu->penggunaan_tw1 + $pagu->penggunaan_tw2 + $pagu->penggunaan_tw3 + $pagu->penggunaan_tw4) <= $pagu->pagu )
             // tes
             if($jumlah <= $pagu->sisa)
@@ -189,8 +189,8 @@ class RkaController extends Controller
     public function edit($id)
     {
         try {
-            $rka= Auth::user()->rkas()->findOrFail($id);  
-            return view('sekolah.rka.tambah', 
+            $rka= Auth::user()->rkas()->findOrFail($id);
+            return view('sekolah.rka.tambah',
                 [
                     'aksi' => "edit",
                     'rka' => $rka,
@@ -213,7 +213,7 @@ class RkaController extends Controller
         $ta= $request->cookie('ta');
         $pagu = Auth::user()->pagus->where('ta',$ta)->first();
         $rka= Auth::user()->rkas()->find($id);
-        
+
         if (!empty($rka)) {
             $npsn= $rka->npsn;
             $harga_satuan_lama  = $rka->harga_satuan;
@@ -231,7 +231,7 @@ class RkaController extends Controller
             $alokasi_tw4_baru = floatval(str_replace(",",".",$request->alokasi_tw4));
 
             $selisih_harga_satuan = $harga_satuan_baru - $harga_satuan_lama;
-            $selisih_jumlah = $jumlah_baru - $jumlah_lama; 
+            $selisih_jumlah = $jumlah_baru - $jumlah_lama;
             $selisih_alokasi_tw1 = $alokasi_tw1_baru - $alokasi_tw1_lama;
             $selisih_alokasi_tw2 = $alokasi_tw2_baru - $alokasi_tw2_lama;
             $selisih_alokasi_tw3 = $alokasi_tw3_baru - $alokasi_tw3_lama;
@@ -241,7 +241,7 @@ class RkaController extends Controller
                 ($selisih_alokasi_tw1 + $pagu->penggunaan_tw1) <= (0.2 * $pagu->pagu) &&
                 ($selisih_alokasi_tw2 + $pagu->penggunaan_tw2) <= (0.4 * $pagu->pagu) &&
                 ($selisih_alokasi_tw3 + $pagu->penggunaan_tw3) <= (0.2 * $pagu->pagu) &&
-                ($selisih_alokasi_tw4 + $pagu->penggunaan_tw4) <= (0.2 * $pagu->pagu)    
+                ($selisih_alokasi_tw4 + $pagu->penggunaan_tw4) <= (0.2 * $pagu->pagu)
             )*/
             if($selisih_jumlah <= $pagu->sisa)
             {
@@ -252,7 +252,7 @@ class RkaController extends Controller
                     $rka->kegiatan_id= $request->kegiatan_id;
                     $rka->komponen_pembiayaan_id= $request->komponen_pembiayaan_id;
                     $rka->kode_rekening_id= $request->kode_rekening_id;
-                    
+
                     $rka->uraian = $request->uraian;
                     $rka->volume = $request->volume;
                     $rka->satuan = $request->satuan;
@@ -291,16 +291,16 @@ class RkaController extends Controller
                     DB::rollback();
                     return redirect()->back()
                     ->withErrors(['msg' => 'Oops, ada yang salah! (RE-1)']);
-                
+
                 }
 
                 try {
                     // Step 1.1 Tambahan pemeriksaan Jumlah RKA
-                    if($rka->jumlah != 
+                    if($rka->jumlah !=
                         (
-                            $rka->alokasi_tw1 + 
-                            $rka->alokasi_tw2 + 
-                            $rka->alokasi_tw3 + 
+                            $rka->alokasi_tw1 +
+                            $rka->alokasi_tw2 +
+                            $rka->alokasi_tw3 +
                             $rka->alokasi_tw4
                         )
                     ){
@@ -312,7 +312,7 @@ class RkaController extends Controller
                     DB::rollback();
                     return redirect()->back()
                     ->withErrors(['msg' => 'Oops, ada yang salah! (RE-1.1)']);
-                
+
                 }
 
                 try {
@@ -328,23 +328,23 @@ class RkaController extends Controller
                     DB::rollback();
                     return redirect()->back()
                     ->withErrors(['msg' => 'Oops, ada yang salah! (RE-2)']);
-                
+
                 }
 
 
                 DB::commit(); // All transaction will commit if statement reach on this
                 return redirect()->route('sekolah.rka.index')->with('success','Data RKA berhasil diperbarui!');
-                
+
             }
             else{
                 return redirect()->back()->withErrors(['msg' => 'Alokasi Triwulan melebihi Pagu']);
             }
-            
+
         }
         else{
             return redirect()->route('sekolah.rka.index')->withErrors(['msg' => 'RKA tidak ditemukan']);
         }
-                
+
     }
 
     /**
@@ -434,7 +434,7 @@ class RkaController extends Controller
             }
 
             return $a->parent > $b->parent ? 1 : -1;
-            
+
         });
 
         $rkas_sorted = $sorted->values()->all();
@@ -455,11 +455,12 @@ class RkaController extends Controller
             [
                 'kode' => '5.2.3.35.02',
                 'nama' => 'Belanja Modal Aset Tetap Lainnya'
-            ],
+            ]
+            /*,
             [
                 'kode' => '5.2.3.35.03',
                 'nama' => 'Belanja Modal Gedung dan Bangunan'
-            ]
+            ]*/
         ];
 
         $hasil= array();
@@ -476,7 +477,7 @@ class RkaController extends Controller
             $hasil[$rka->parent][$rka->kode_program_id][$rka->kegiatan_id][$i]['tw1'] = $rka->alokasi_tw1;
             $hasil[$rka->parent][$rka->kode_program_id][$rka->kegiatan_id][$i]['tw2'] = $rka->alokasi_tw2;
             $hasil[$rka->parent][$rka->kode_program_id][$rka->kegiatan_id][$i]['tw3'] = $rka->alokasi_tw3;
-            $hasil[$rka->parent][$rka->kode_program_id][$rka->kegiatan_id][$i]['tw4'] = $rka->alokasi_tw4;
+//            $hasil[$rka->parent][$rka->kode_program_id][$rka->kegiatan_id][$i]['tw4'] = $rka->alokasi_tw4;
         }
 
         // return json_encode($kegiatans);
@@ -494,14 +495,14 @@ class RkaController extends Controller
         $jumlahall['tw1'] = 0;
         $jumlahall['tw2'] = 0;
         $jumlahall['tw3'] = 0;
-        $jumlahall['tw4'] = 0;
+//        $jumlahall['tw4'] = 0;
 
         foreach ($hasil as $i => $parent) {
             $jumlahperparent[$i]['jumlah'] = 0;
             $jumlahperparent[$i]['tw1'] = 0;
             $jumlahperparent[$i]['tw2'] = 0;
             $jumlahperparent[$i]['tw3'] = 0;
-            $jumlahperparent[$i]['tw4'] = 0;
+//            $jumlahperparent[$i]['tw4'] = 0;
 
             $baris[$indexbaris]['koderekening'] = $parents[$i-1]['kode'];
             $baris[$indexbaris]['snp'] = '';
@@ -514,7 +515,7 @@ class RkaController extends Controller
             $baris[$indexbaris]['tw1'] = '';
             $baris[$indexbaris]['tw2'] = '';
             $baris[$indexbaris]['tw3'] = '';
-            $baris[$indexbaris]['tw4'] = '';
+//            $baris[$indexbaris]['tw4'] = '';
 
             $indexbaris++;
             $baris[$indexbaris]['koderekening'] = $parents[$i-1]['nama'];
@@ -528,7 +529,7 @@ class RkaController extends Controller
             $baris[$indexbaris]['tw1'] = '';
             $baris[$indexbaris]['tw2'] = '';
             $baris[$indexbaris]['tw3'] = '';
-            $baris[$indexbaris]['tw4'] = '';
+//            $baris[$indexbaris]['tw4'] = '';
 
             $arraykepala[$i] = $indexbaris;
 
@@ -547,7 +548,7 @@ class RkaController extends Controller
                 $baris[$indexbaris]['tw1'] = '';
                 $baris[$indexbaris]['tw2'] = '';
                 $baris[$indexbaris]['tw3'] = '';
-                $baris[$indexbaris]['tw4'] = '';
+//                $baris[$indexbaris]['tw4'] = '';
 
                 foreach ($program as $k => $kegiatan) {
                     $indexbaris++;
@@ -562,7 +563,7 @@ class RkaController extends Controller
                     $baris[$indexbaris]['tw1'] = '';
                     $baris[$indexbaris]['tw2'] = '';
                     $baris[$indexbaris]['tw3'] = '';
-                    $baris[$indexbaris]['tw4'] = '';
+//                    $baris[$indexbaris]['tw4'] = '';
 
 
                     foreach ($kegiatan as $l => $rkadetail) {
@@ -579,21 +580,21 @@ class RkaController extends Controller
                         $baris[$indexbaris]['tw1'] = $rkadetail['tw1'];
                         $baris[$indexbaris]['tw2'] = $rkadetail['tw2'];
                         $baris[$indexbaris]['tw3'] = $rkadetail['tw3'];
-                        $baris[$indexbaris]['tw4'] = $rkadetail['tw4'];
+//                        $baris[$indexbaris]['tw4'] = $rkadetail['tw4'];
 
                         // Hitung
                         $jumlahperparent[$i]['jumlah'] += $rkadetail['jumlah'];
                         $jumlahperparent[$i]['tw1'] += $rkadetail['tw1'];
                         $jumlahperparent[$i]['tw2'] += $rkadetail['tw2'];
                         $jumlahperparent[$i]['tw3'] += $rkadetail['tw3'];
-                        $jumlahperparent[$i]['tw4'] += $rkadetail['tw4'];
+//                        $jumlahperparent[$i]['tw4'] += $rkadetail['tw4'];
 
                         //Hitung Lagi
                         $jumlahall['jumlah'] += $rkadetail['jumlah'];
                         $jumlahall['tw1'] += $rkadetail['tw1'];
                         $jumlahall['tw2'] += $rkadetail['tw2'];
                         $jumlahall['tw3'] += $rkadetail['tw3'];
-                        $jumlahall['tw4'] += $rkadetail['tw4'];
+//                        $jumlahall['tw4'] += $rkadetail['tw4'];
                     }
                 }
             }
@@ -606,7 +607,7 @@ class RkaController extends Controller
             $baris[$item]['tw1'] = $jumlahperparent[$a]['tw1'];
             $baris[$item]['tw2'] = $jumlahperparent[$a]['tw2'];
             $baris[$item]['tw3'] = $jumlahperparent[$a]['tw3'];
-            $baris[$item]['tw4'] = $jumlahperparent[$a]['tw4'];
+//            $baris[$item]['tw4'] = $jumlahperparent[$a]['tw4'];
 
         }
 
@@ -633,7 +634,7 @@ class RkaController extends Controller
 
         $worksheet->getCell('sum_tw3')->setValue($jumlahall['tw3']);
 
-        $worksheet->getCell('sum_tw4')->setValue($jumlahall['tw4']);
+//        $worksheet->getCell('sum_tw4')->setValue($jumlahall['tw4']);
 
         $worksheet->getCell('nama_kepsek')->setValue($nama_kepsek);
         $worksheet->getCell('nip_kepsek')->setValue($nip_kepsek);

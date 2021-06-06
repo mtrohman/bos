@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Sekolah;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
@@ -14,7 +15,7 @@ class DashboardController extends Controller
     	$statusprofil = 0;
     	if (
     		!empty($sekolah->desa) &&
-    		!empty($sekolah->alamat) && 
+    		!empty($sekolah->alamat) &&
     		!empty($sekolah->telepon) &&
     		!empty($sekolah->nama_kepsek) &&
     		!empty($sekolah->nama_bendahara)

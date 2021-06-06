@@ -41,18 +41,18 @@ class BelanjaController extends Controller
                 return FormatMataUang($belanja->nilai);
             })
             ->editColumn('rka.rekening.nama_rekening', function(Belanja $belanja) {
-                return 
+                return
                     $belanja->rka->rekening->parent->kode_rekening.".".
                     $belanja->rka->rekening->kode_rekening." - ".
                     $belanja->rka->rekening->nama_rekening;
             })
             ->editColumn('rka.program.nama_program', function(Belanja $belanja) {
-                return 
+                return
                     $belanja->rka->program->kode_program." - ".
                     $belanja->rka->program->nama_program;
             })
             ->editColumn('rka.kp.nama_komponen', function(Belanja $belanja) {
-                return 
+                return
                     $belanja->rka->kp->kode_komponen." - ".
                     $belanja->rka->kp->nama_komponen;
             })
@@ -64,10 +64,10 @@ class BelanjaController extends Controller
 
                 $periode_awal= Auth::user()->periode_awal;
                 $periode_akhir= Auth::user()->periode_akhir;
-                
+
                 $btndasar = RenderTombol("success", $urledit, "Edit")." ".
                 RenderTombol("danger confirmation", $urlhapus, "Hapus")." ";
-                
+
                 if (isset($periode_awal) && isset($periode_akhir)) {
                     if (
                         $belanja->tanggal < $periode_awal ||
@@ -87,7 +87,7 @@ class BelanjaController extends Controller
                 		$urltambahan = route('sekolah.belanja.persediaan', ['id' => $belanja->id]);
                 		$labeltambahan = "Belanja Persediaan";
                 		break;
-                	
+
                 	default:
                 		$urltambahan = "";
                 		break;
@@ -126,10 +126,10 @@ class BelanjaController extends Controller
         $ppn = floatval(str_replace(',', '.', $request->ppn));
         $pph21 = floatval(str_replace(',', '.', $request->pph21));
         $pph23 = floatval(str_replace(',', '.', $request->pph23));
-        
+
 
         $tanggal = $request->tanggal;
-    	$triwulan = GetTriwulan($tanggal);
+    	$triwulan = GetCaturwulan($tanggal);
 
     	$rka_id= $request->rka_id;
     	$rka= Auth::user()->rkas()->where(
@@ -155,7 +155,7 @@ class BelanjaController extends Controller
             // $alokasi_triwulan= 'alokasi_tw'.$triwulan;
             $realisasi_triwulan= 'realisasi_tw'.$triwulan;
             $total_sisa_sampai_tw= 0;
-            for ($i=1; $i <= $triwulan; $i++) { 
+            for ($i=1; $i <= $triwulan; $i++) {
     		    $alokasi_tw= 'alokasi_tw'.$i;
                 $realisasi_tw= 'realisasi_tw'.$i;
                 $sisa_tw= $rka->$alokasi_tw - $rka->$realisasi_tw;
@@ -193,7 +193,7 @@ class BelanjaController extends Controller
 
     			} catch (\Exception $e) {
     				DB::rollback();
-    				return redirect()->back()->withErrors('Step 1: '.$e->getMessage());	
+    				return redirect()->back()->withErrors('Step 1: '.$e->getMessage());
     			}
 
     			// Step 2: Buat Trx
@@ -238,7 +238,7 @@ class BelanjaController extends Controller
     					$saldoawal->save();
 
     				} catch (\Exception $e) {
-    					$saldoawal = new SaldoAwal; 
+    					$saldoawal = new SaldoAwal;
 		                $saldoawal->ta = $ta;
 		                // $saldoawal->npsn = $belanja->npsn;
 		                $saldoawal->periode = $transaksi->tanggal->addMonthsNoOverflow()->startOfMonth();
@@ -247,7 +247,7 @@ class BelanjaController extends Controller
 		                // $saldoawal->save();
 		                Auth::user()->saldo_awals()->save($saldoawal);
     				}
-    				
+
 
     			} catch (\Exception $e) {
     				DB::rollback();
@@ -286,7 +286,7 @@ class BelanjaController extends Controller
         $kas = $belanja->kas;
 
         $tanggal = $belanja->tanggal;
-        $triwulan = GetTriwulan($tanggal);
+        $triwulan = GetCaturwulan($tanggal);
 
         $saldo = Auth::user()->saldos()->where('ta', '=', $ta)->firstOrFail();
         $nominal_lama = $belanja->nilai;
@@ -296,7 +296,7 @@ class BelanjaController extends Controller
         $ppn = floatval(str_replace(',', '.', $request->ppn));
         $pph21 = floatval(str_replace(',', '.', $request->pph21));
         $pph23 = floatval(str_replace(',', '.', $request->pph23));
-        
+
         $rka_id= $belanja->rka_id;
         $rka= Auth::user()->rkas()->where(
             [
@@ -335,18 +335,18 @@ class BelanjaController extends Controller
                 try {
                     $belanja->nama = $request->nama;
                     $belanja->nilai += $selisih;
-                    
+
                     $belanja->ppn = $ppn;
                     $belanja->pph21 = $pph21;
                     $belanja->pph23 = $pph23;
-                    
+
                     $belanja->nomor = $request->nomor;
                     $belanja->penerima = $request->penerima;
                     Auth::user()->belanjas()->save($belanja);
 
                 } catch (\Exception $e) {
                     DB::rollback();
-                    return redirect()->back()->withErrors('Step 1: '.$e->getMessage()); 
+                    return redirect()->back()->withErrors('Step 1: '.$e->getMessage());
                 }
 
                 // Step 2: Buat Trx
@@ -386,7 +386,7 @@ class BelanjaController extends Controller
                         $saldoawal->save();
 
                     } catch (\Exception $e) {
-                        $saldoawal = new SaldoAwal; 
+                        $saldoawal = new SaldoAwal;
                         $saldoawal->ta = $transaksi->ta;
                         // $saldoawal->npsn = $belanja->npsn;
                         $saldoawal->periode = $transaksi->tanggal->addMonthsNoOverflow()->startOfMonth();
@@ -395,7 +395,7 @@ class BelanjaController extends Controller
                         // $saldoawal->save();
                         Auth::user()->saldo_awals()->save($saldoawal);
                     }
-                    
+
 
                 } catch (\Exception $e) {
                     DB::rollback();
@@ -417,7 +417,7 @@ class BelanjaController extends Controller
 
             }
         }
-        
+
     }
 
     public function destroy(Request $request, $id)
@@ -433,11 +433,11 @@ class BelanjaController extends Controller
                 // Step 1: Delete Belanja Modal
                 try {
                     $belanja->modals()->delete();
-                    // 
+                    //
                 } catch (\Exception $e) {
                     DB::rollback();
                     return redirect()->back()->withErrors('Error: '.$e->getMessage());
-                    // 
+                    //
                 }
 
                 // Step 2: Delete Belanja
@@ -457,7 +457,7 @@ class BelanjaController extends Controller
                     $qty = $item->qty;
                     $persediaan = $item->barang_persediaan;
                     $barang_persediaan_id = $item->barang_persediaan_id;
-                    
+
                     // Step 1: Update stok
                     try {
                         $persediaan->stok -= $qty;
@@ -503,32 +503,32 @@ class BelanjaController extends Controller
                     // Step 3: Hapus Belanja Persediaan
                     try {
                         $item->delete();
-                        
+
                     } catch (\Exception $e) {
                         DB::rollback();
                         return redirect()->back()->withErrors('Error: '.$e->getMessage());
                     }
-                    
+
                 }
                 // Step 4: Hapus Belanja
                 /*try {
                     $belanja->delete();
-                    
+
                 } catch (\Exception $e) {
                     DB::rollback();
                     return redirect()->back()->withErrors('Error: '.$e->getMessage());
                 }*/
                 // return $belanjapersediaan;
                 break;
-            
+
             default:
                 // return $belanja;
                 break;
         }
-        
+
         $kas = $belanja->kas;
         $tanggal = $belanja->tanggal;
-        $triwulan = GetTriwulan($tanggal);
+        $triwulan = GetCaturwulan($tanggal);
         $saldo = Auth::user()->saldos()->where('ta', '=', $ta)->firstOrFail();
         $nominal = $belanja->nilai;
         $realisasi_triwulan= 'realisasi_tw'.$triwulan;
@@ -536,11 +536,11 @@ class BelanjaController extends Controller
         $rka = $belanja->rka;
         if ($kas=='B') {
             $source = 'saldo_bank';
-            
+
         }
         else if ($kas=='T') {
             $source = 'saldo_tunai';
-            
+
         }
 
         // Hapus Transaksi
@@ -585,7 +585,7 @@ class BelanjaController extends Controller
                 $saldoawal->save();
 
             } catch (\Exception $e) {
-                $saldoawal = new SaldoAwal; 
+                $saldoawal = new SaldoAwal;
                 $saldoawal->ta = $ta;
                 // $saldoawal->npsn = $belanja->npsn;
                 $saldoawal->periode = $tanggal->addMonthsNoOverflow()->startOfMonth();
@@ -594,7 +594,7 @@ class BelanjaController extends Controller
                 // $saldoawal->save();
                 Auth::user()->saldo_awals()->save($saldoawal);
             }
-            
+
 
         } catch (\Exception $e) {
             DB::rollback();
@@ -610,12 +610,12 @@ class BelanjaController extends Controller
             DB::rollback();
             return redirect()->back()->withErrors('Error: '.$e->getMessage());
         }
-        
+
         // return $belanja;
         // DB::rollback();
         DB::commit();
         return redirect()->back()->with(['success'=>'Data Belanja Berhasil dihapus!']);
-        
+
     }
 
     public function a2(Request $request, $id)
@@ -639,7 +639,7 @@ class BelanjaController extends Controller
 			$namasekolah= $sekolah->name;
 			$namakecamatan= $sekolah->kecamatan->nama_kecamatan;
 			$ta= $belanja->rka->ta;
-			$nomor= $belanja->nomor;	
+			$nomor= $belanja->nomor;
 			$judul= $namasekolah." - ".$namakecamatan;
 			$penerima= $belanja->penerima;
 			$uang_digit= $belanja->nilai;
@@ -734,14 +734,14 @@ class BelanjaController extends Controller
         $belanjamodal->harga_satuan     = $harga_satuan;
         $belanjamodal->qty              = $request->qty;
         $belanjamodal->total            = $total;
-        
+
         try {
             $belanja->modals()->save($belanjamodal);
             return redirect()->route('sekolah.belanja.modal',['id'=>$id]);
         } catch (\Exception $e) {
             return redirect()->back()->withErrors('Error: '.$e->getMessage());
         }
-        
+
         // return $request->input();
     }
 
@@ -759,7 +759,7 @@ class BelanjaController extends Controller
     {
         $belanja = Auth::user()->belanjas()->findOrFail($id);
         $belanjamodal = $belanja->modals()->findOrFail($modal_id);
-        
+
         $harga_satuan = floatval(str_replace(',', '.', $request->harga_satuan));
         $total = floatval(str_replace(',', '.', $request->total));
 
@@ -788,7 +788,7 @@ class BelanjaController extends Controller
     {
         $belanja = Auth::user()->belanjas()->findOrFail($id);
         $belanjamodal = $belanja->modals()->findOrFail($modal_id);
-        
+
         try {
             $belanjamodal->delete();
             return redirect()->route('sekolah.belanja.modal',['id'=>$id]);
@@ -825,7 +825,7 @@ class BelanjaController extends Controller
             ->addColumn('action', function($belanjamodal) {
                 $urledit= route('sekolah.belanja.editmodal', ['id' => $belanjamodal->belanja_id, 'modal_id' => $belanjamodal->id]);
                 $urlhapus= route('sekolah.belanja.destroymodal', ['id' => $belanjamodal->belanja_id, 'modal_id' => $belanjamodal->id]);
-                
+
                 $btnaction =
                     RenderTombol("success", $urledit, "Edit")." ".
                     RenderTombol("danger confirmation", $urlhapus, "Hapus");
@@ -855,7 +855,7 @@ class BelanjaController extends Controller
         $nama= $belanja->nama;
         // return $jenis;
         return view('sekolah.belanja.persediaan.tambah', compact('aksi','nama','id', 'persediaans'));
-    
+
     }
 
     public function storepersediaan(Request $request, $id)
@@ -1096,7 +1096,7 @@ class BelanjaController extends Controller
         // Step 3: Hapus Belanja Persediaan
         try {
             $belanjapersediaan->delete();
-            
+
         } catch (\Exception $e) {
             DB::rollback();
             return redirect()->back()->withErrors('Error: '.$e->getMessage());
@@ -1104,7 +1104,7 @@ class BelanjaController extends Controller
 
         DB::commit();
         return redirect()->route('sekolah.belanja.persediaan',['id'=>$id]);
-        
+
     }
 
     public function getpersediaan($id)
@@ -1114,7 +1114,7 @@ class BelanjaController extends Controller
             $belanja = Auth::user()->belanjas()->findOrFail($id);
             $query = $belanja->persediaans()->ta($ta)->with('barang_persediaan');
             $bpersediaan = $belanja->persediaans()->ta($ta)->with('barang_persediaan')->get();
-            
+
             return DataTables::eloquent($query)
             // ->filter(function ($query) use ($ta) {
             //     $query->where('ta', '=', $ta);
@@ -1135,7 +1135,7 @@ class BelanjaController extends Controller
             ->addColumn('action', function($belanjapersediaan) {
                 $urledit= route('sekolah.belanja.editpersediaan', ['id' => $belanjapersediaan->belanja_id, 'modal_id' => $belanjapersediaan->id]);
                 $urlhapus= route('sekolah.belanja.destroypersediaan', ['id' => $belanjapersediaan->belanja_id, 'modal_id' => $belanjapersediaan->id]);
-                
+
                 $btnaction =
                     RenderTombol("success", $urledit, "Edit")." ".
                     RenderTombol("danger confirmation", $urlhapus, "Hapus");

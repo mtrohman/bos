@@ -12,10 +12,9 @@
             				<th class="cari">Kegiatan</th>
             				<th class="cari">Uraian</th>
             				<th>Jumlah</th>
-            				<th>Sisa TW1</th>
-            				<th>Sisa TW2</th>
-            				<th>Sisa TW3</th>
-            				<th>Sisa TW4</th>
+            				<th>Sisa CW1</th>
+            				<th>Sisa CW2</th>
+            				<th>Sisa CW3</th>
             				<th class="cari">Rekening</th>
             				<th class="cari">Program</th>
             				<th class="cari">KP</th>
@@ -67,11 +66,11 @@
             						FormatMataUang($item->alokasi_tw3 - $item->realisasi_tw3)
             					}}
             				</td>
-            				<td>
+            				{{-- <td>
             					{{
             						FormatMataUang($item->alokasi_tw4 - $item->realisasi_tw4)
             					}}
-            				</td>
+            				</td> --}}
             				
             				<td>
             					{{
@@ -103,10 +102,9 @@
             				<th>Kegiatan</th>
             				<th>Uraian</th>
             				<th>Jumlah</th>
-            				<th>Sisa TW1</th>
-            				<th>Sisa TW2</th>
-            				<th>Sisa TW3</th>
-            				<th>Sisa TW4</th>
+            				<th>Sisa CW1</th>
+            				<th>Sisa CW2</th>
+            				<th>Sisa CW3</th>
             				<th>Rekening</th>
             				<th>Program</th>
             				<th>KP</th>

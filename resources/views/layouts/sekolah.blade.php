@@ -144,9 +144,9 @@
                                 <li>
                                     <a href="{{ route('sekolah.kas.penerimaan') }}" class="menu-item">Penerimaan Dana</a>
                                 </li>
-                               {{--  <li>
+                                <li>
                                     <a href="{{ route('sekolah.trxkas.index') }}" class="menu-item">Transaksi Kas</a>
-                                </li> --}}
+                                </li>
                                 {{-- <li>
                                     <a href="{{ route('sekolah.kas.saldolalu') }}" class="menu-item">Saldo Th Lalu</a>
                                 </li> --}}
@@ -159,7 +159,7 @@
                             </ul>
                         </li>
 
-                        {{-- <li class="has-sub nav-item">
+                        <li class="has-sub nav-item">
                             <a href="javascript:void(0)">
                                 <i class="ft-shopping-cart"></i>
                                 <span data-i18n="" class="menu-title">
@@ -167,7 +167,10 @@
                                 </span>
                             </a>
                             <ul class="menu-content">
-                                <li class="has-sub">
+                                <li>
+                                    <a href="{{ route('sekolah.belanja.index') }}" class="menu-item">Data Belanja</a>
+                                </li>
+                                {{-- <li class="has-sub">
                                     <a href="javascript:void(0)" class="menu-item">Belanja Th Berjalan</a>
                                     <ul class="menu-content">
                                         <li>
@@ -180,9 +183,9 @@
                                             <a href="{{ route('sekolah.belanjamodal.index') }}" class="menu-item">Data Belanja Modal</a>
                                         </li>
                                     </ul>
-                                </li>
+                                </li> --}}
 
-                                <li class="has-sub">
+                                {{-- <li class="has-sub">
                                     <a href="javascript:void(0)" class="menu-item">Belanja Th Lalu</a>
                                     <ul class="menu-content">
                                         <li>
@@ -195,9 +198,9 @@
                                             <a href="#belanjamodal" class="menu-item">Data Belanja Modal</a>
                                         </li>
                                     </ul>
-                                </li>
+                                </li> --}}
                             </ul>
-                        </li> --}}
+                        </li>
 
                         {{-- <li class="has-sub nav-item">
                             <a href="javascript:void(0)">
@@ -217,7 +220,7 @@
                             </ul>
                         </li> --}}
 
-                        {{-- <li class="has-sub nav-item">
+                        <li class="has-sub nav-item">
                             <a href="javascript:void(0)">
                                 <i class="ft-file-text"></i>
                                 <span data-i18n="" class="menu-title">
@@ -225,7 +228,23 @@
                                 </span>
                             </a>
                             <ul class="menu-content">
-                                <li class="has-sub">
+                                <li>
+                                    <a href="{{ route('sekolah.laporan.bku') }}" class="menu-item">BKU</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('sekolah.laporan.bukubank') }}" class="menu-item">Buku Bank</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('sekolah.laporan.bukutunai') }}" class="menu-item">Buku Tunai</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('sekolah.laporan.bukupajak') }}" class="menu-item">Buku Pajak</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('sekolah.laporan.k7provv2') }}" class="menu-item">K7 Prov Bulanan</a>
+                                </li>
+
+                                {{-- <li class="has-sub">
                                     <a href="javascript:void(0)" class="menu-item">Th Berjalan</a>
                                     <ul class="menu-content">
                                         <li>
@@ -269,10 +288,10 @@
                                         </li>
                                         
                                     </ul>
-                                </li>
+                                </li> --}}
 
                             </ul>
-                        </li> --}}
+                        </li>
                         <li>
                             <a href="{{ route('logout') }}" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">

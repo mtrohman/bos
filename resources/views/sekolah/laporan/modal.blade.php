@@ -40,34 +40,34 @@ select[readonly].select2-hidden-accessible + .select2-container .select2-selecti
                         <div class="card-body">
                             <form class="form" method="POST" action="{{ route('sekolah.proses.modal') }}">
                                 @csrf
-                                
+
                                 <div class="form-body">
-                                    
+
                                     <div class="form-group mb-1">
-                                        <label class="m-0" for="triwulan">Triwulan</label>
+                                        <label class="m-0" for="triwulan">Caturwulan</label>
                                         <select id='triwulan' class="form-control" name="triwulan" style="width:100%" required>
-                                            <option>Pilih Triwulan</option>
-                                            <option value="1">Triwulan 1</option>
-                                            <option value="2">Triwulan 2</option>
-                                            <option value="3">Triwulan 3</option>
-                                            <option value="4">Triwulan 4</option>
-                                            
+                                            <option>Pilih Caturwulan</option>
+                                            <option value="1">Caturwulan 1</option>
+                                            <option value="2">Caturwulan 2</option>
+                                            <option value="3">Caturwulan 3</option>
+{{--                                            <option value="4">Triwulan 4</option>--}}
+
                                         </select>
                                     </div>
 
                                 </div>
-                                        
+
 
                                 <div class="form-actions pb-0 text-right">
-                                    
+
                                     <button type="submit" class="btn btn-raised btn-primary mb-0">
                                         <i class="fa fa-check-square-o"></i> Proses
                                     </button>
                                 </div>
                             </form>
-                            
-                            
-                            
+
+
+
                         </div>
                     </div>
                 </div>
@@ -83,7 +83,7 @@ select[readonly].select2-hidden-accessible + .select2-container .select2-selecti
 <script src="{{ asset('app-assets/vendors/js/toastr.min.js') }}" type="text/javascript"></script>
 <script>
     $(document).ready(function () {
-        
+
         /* jshint ignore:start */
         @if($errors->any())
             toastr.error("{{ $errors->first() }}", "Error!", {
@@ -91,7 +91,7 @@ select[readonly].select2-hidden-accessible + .select2-container .select2-selecti
                 timeOut: 0
             });
         @endif
-        
+
         /* jshint ignore:end */
     });
 

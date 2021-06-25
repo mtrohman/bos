@@ -4,16 +4,344 @@
 		"selected_items":
 		[
 			[
-				"persed",
-				"persediaan_all"
+				"for",
+				"foreach\tforeach …"
 			],
 			[
-				"pene",
+				"rs",
+				"results"
+			],
+			[
+				"font",
+				"font-weight\tproperty"
+			],
+			[
+				"data",
+				"data_keluar"
+			],
+			[
+				"trx_kel",
+				"trx_keluar_bulan"
+			],
+			[
+				"peneri",
 				"penerimaan_cw"
 			],
 			[
-				"per",
+				"belanja",
+				"belanja_bulan"
+			],
+			[
+				"trx",
+				"trx_masuk_bulan"
+			],
+			[
+				"penerimaan",
+				"penerimaan_bulan"
+			],
+			[
+				"saldo",
+				"saldoakhir_bank"
+			],
+			[
+				"sisa",
+				"sisa_pagu"
+			],
+			[
+				"pagu",
+				"pagu_lama"
+			],
+			[
+				"excel",
+				"excelvalid"
+			],
+			[
+				"pengg",
+				"penggunaan_tw1"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"array",
+				"arraypagu"
+			],
+			[
+				"res",
+				"result"
+			],
+			[
+				"con",
+				"continue"
+			],
+			[
+				"kas",
+				"kas_trxes"
+			],
+			[
+				"Kas",
+				"KasTrx"
+			],
+			[
+				"pendap",
+				"pendapatan"
+			],
+			[
+				"penda",
+				"pendapatans"
+			],
+			[
+				"pen",
+				"pendapatans"
+			],
+			[
+				"nomin",
+				"nominal"
+			],
+			[
+				"in",
+				"intval"
+			],
+			[
+				"saldo_",
+				"saldo_tunai"
+			],
+			[
+				"bula",
+				"bulan_akhir"
+			],
+			[
+				"nama",
+				"nama_sekolah"
+			],
+			[
+				"where",
+				"whereMonth"
+			],
+			[
+				"paja",
+				"pajak_belanja"
+			],
+			[
+				"paj",
+				"pajak_belanja"
+			],
+			[
+				"bel",
+				"belanjamodal"
+			],
+			[
+				"belan",
+				"belanja"
+			],
+			[
+				"req",
+				"request"
+			],
+			[
+				"rek",
+				"rekening"
+			],
+			[
+				"vi",
+				"view"
+			],
+			[
+				"re",
+				"return"
+			],
+			[
+				"perio",
+				"periode_awal"
+			],
+			[
+				"periode",
+				"periode_akhir"
+			],
+			[
+				"btn",
+				"btndasar"
+			],
+			[
+				"peio",
+				"periode_akhir"
+			],
+			[
+				"stat",
+				"status_rka"
+			],
+			[
+				"pe",
+				"periode_akhir"
+			],
+			[
+				"kode",
+				"kode_jenis"
+			],
+			[
+				"sald",
+				"saldo_twlalu"
+			],
+			[
+				"pro",
+				"program_kp"
+			],
+			[
+				"end",
+				"endOfMonth"
+			],
+			[
+				"penerimaa",
+				"penerimaan_twsekarang"
+			],
+			[
+				"pene",
+				"penerimaan_tw_sekarang"
+			],
+			[
+				"sal",
+				"saldobank_periodelalu"
+			],
+			[
+				"belanj",
+				"belanja_barangjasa"
+			],
+			[
+				"bulan",
+				"bulan_awal"
+			],
+			[
+				"pers",
 				"persediaan_all"
+			],
+			[
+				"persed",
+				"persediaan"
+			],
+			[
+				"tota",
+				"total_sisa_sampai_tw"
+			],
+			[
+				"total",
+				"total_alokasi_sampai_tw"
+			],
+			[
+				"trans",
+				"transaksi_sebulan"
+			],
+			[
+				"juml",
+				"jumlahrealisasi"
+			],
+			[
+				"reali",
+				"realisasitw1"
+			],
+			[
+				"cou",
+				"countbelanja"
+			],
+			[
+				"url",
+				"urlkunci"
+			],
+			[
+				"addi",
+				"additional"
+			],
+			[
+				"form",
+				"form-control"
+			],
+			[
+				"st",
+				"style\tAttr"
+			],
+			[
+				"Form",
+				"form-control"
+			],
+			[
+				"jumlah",
+				"jumlahrka"
+			],
+			[
+				"jum",
+				"jumlahrealisasi"
+			],
+			[
+				"ju",
+				"jumlahrealisasi"
+			],
+			[
+				"rea",
+				"realisasi4"
+			],
+			[
+				"real",
+				"realisasi3"
+			],
+			[
+				"rka",
+				"rkataberjalan"
+			],
+			[
+				"co",
+				"count"
+			],
+			[
+				"penge",
+				"pengeluaran_persediaan"
+			],
+			[
+				"trx_",
+				"trx_in"
+			],
+			[
+				"per",
+				"persediaans"
+			],
+			[
+				"bela",
+				"belanja"
+			],
+			[
+				"alokas",
+				"alokasi_per_tw"
+			],
+			[
+				"fil",
+				"filteredSekolah"
+			],
+			[
+				"f",
+				"filteredSekolah"
+			],
+			[
+				"strrep",
+				"str_replace"
+			],
+			[
+				"jenis",
+				"jenis_belanja"
+			],
+			[
+				"belaj",
+				"belanjapersediaan"
+			],
+			[
+				"barang",
+				"barang_persediaan_id"
+			],
+			[
+				"qty",
+				"qty_baru"
+			],
+			[
+				"belanjaper",
+				"belanjapersediaan"
 			],
 			[
 				"perse",
@@ -22,10 +350,6 @@
 			[
 				"persediaa",
 				"persediaans"
-			],
-			[
-				"kode",
-				"kode_barang_id"
 			],
 			[
 				"trw",
@@ -40,10 +364,6 @@
 				"belanja_pegawai"
 			],
 			[
-				"rka",
-				"rkaperrekening"
-			],
-			[
 				"paren",
 				"parent_id"
 			],
@@ -54,10 +374,6 @@
 			[
 				"nip",
 				"nip_bendahara"
-			],
-			[
-				"nama",
-				"nama_bendahara"
 			],
 			[
 				"strto",
@@ -92,16 +408,8 @@
 				"cariPersediaan"
 			],
 			[
-				"bel",
-				"belanjamodal"
-			],
-			[
 				"modal",
 				"modal_id"
-			],
-			[
-				"belanja",
-				"belanjamodal"
 			],
 			[
 				"ta",
@@ -112,40 +420,12 @@
 				"FormatMataUang"
 			],
 			[
-				"re",
-				"return"
-			],
-			[
-				"belan",
-				"belanjamodal"
-			],
-			[
-				"bela",
-				"belanjamodal"
-			],
-			[
-				"array",
-				"arraykepala"
-			],
-			[
-				"for",
-				"foreach\tforeach …"
-			],
-			[
 				"arr",
 				"arraykepala"
 			],
 			[
-				"nomin",
-				"nominal_lama"
-			],
-			[
 				"nomina",
 				"nominal_baru"
-			],
-			[
-				"btn",
-				"btn-cari"
 			],
 			[
 				"bari",
@@ -160,28 +440,12 @@
 				"json_encode"
 			],
 			[
-				"belanj",
-				"belanjar1_sd_twlalu"
-			],
-			[
-				"sald",
-				"saldo_thlalu"
-			],
-			[
-				"rea",
-				"realisasi_sd_twlalu"
-			],
-			[
 				"ke",
 				"kegiatans"
 			],
 			[
 				"kegi",
 				"kegiatans"
-			],
-			[
-				"pro",
-				"programs"
 			],
 			[
 				"keg",
@@ -212,10 +476,6 @@
 				"realisasi_tw"
 			],
 			[
-				"real",
-				"realisasi_triwulan"
-			],
-			[
 				"uang",
 				"uang_terbilang"
 			],
@@ -232,24 +492,8 @@
 				"tabelBelanjaModal"
 			],
 			[
-				"url",
-				"urltambahan"
-			],
-			[
-				"jenis",
-				"jenisrekening"
-			],
-			[
 				"fun",
 				"fun\tfunction …"
-			],
-			[
-				"saldo_",
-				"saldo_awals"
-			],
-			[
-				"alokas",
-				"alokasi_triwulan"
 			],
 			[
 				"sou",
@@ -268,280 +512,46 @@
 				"kecamatan_id"
 			],
 			[
-				"co",
-				"compact"
-			],
-			[
 				"no",
 				"nominal"
-			],
-			[
-				"with",
-				"withErrors"
-			],
-			[
-				"str_rep",
-				"str_replace"
-			],
-			[
-				"BA",
-				"BarangPersediaan"
-			],
-			[
-				"qt",
-				"qty_lama"
-			],
-			[
-				"qty",
-				"qty_baru"
-			],
-			[
-				"rou",
-				"route"
-			],
-			[
-				"barang",
-				"barang_persediaan_id"
-			],
-			[
-				"str",
-				"strtolower"
-			],
-			[
-				"trx",
-				"trxpersediaan"
-			],
-			[
-				"Bara",
-				"BarangPersediaan"
-			],
-			[
-				"peng",
-				"penggunaan_index"
-			],
-			[
-				"json",
-				"json_encode"
-			],
-			[
-				"saldo",
-				"saldoawal"
-			],
-			[
-				"stok",
-				"stokawal"
-			],
-			[
-				"ba",
-				"barang_persediaan_id"
-			],
-			[
-				"Perse",
-				"PersediaanTrx"
-			],
-			[
-				"rq",
-				"request"
-			],
-			[
-				"persedia",
-				"persediaans"
-			],
-			[
-				"bara",
-				"barangpersediaan_id"
-			],
-			[
-				"baran",
-				"barangpersediaan_id"
-			],
-			[
-				"nam",
-				"nama_persediaan"
-			],
-			[
-				"form",
-				"formBarangpersediaan"
-			],
-			[
-				"edi",
-				"edit-data"
-			],
-			[
-				"act",
-				"actionType"
-			],
-			[
-				"ac",
-				"actionType"
-			],
-			[
-				"aja",
-				"ajax-modal"
-			],
-			[
-				"moda",
-				"ajax-modal"
-			],
-			[
-				"req",
-				"request"
-			],
-			[
-				"p",
-				"pt-3"
-			],
-			[
-				"save",
-				"savebelanja"
-			],
-			[
-				"saveblanja",
-				"savebelanja"
-			],
-			[
-				"navbar",
-				"navbar-right"
-			],
-			[
-				"font",
-				"font-size\tproperty"
-			],
-			[
-				"text",
-				"text-center"
-			],
-			[
-				"n",
-				"namasekolah"
-			],
-			[
-				"jud",
-				"judulpengumuman"
-			],
-			[
-				"pum",
-				"pumpswitch"
-			],
-			[
-				"roo",
-				"roofswitch"
-			],
-			[
-				"roof",
-				"rooftoogle"
-			],
-			[
-				"pump",
-				"pumpstate"
-			],
-			[
-				"hig",
-				"highcharts"
-			],
-			[
-				"lo",
-				"log"
-			],
-			[
-				"con",
-				"console"
-			],
-			[
-				"not",
-				"notify"
-			],
-			[
-				"get",
-				"getScriptPage"
-			],
-			[
-				"mqtt",
-				"mqtt_connect"
-			],
-			[
-				"lux",
-				"luxvalue"
-			],
-			[
-				"soil",
-				"soilvalue"
-			],
-			[
-				"align",
-				"text-align\tproperty"
-			],
-			[
-				"disp",
-				"displaylux"
-			],
-			[
-				"dis",
-				"displayLineChart"
-			],
-			[
-				"can",
-				"canvaslux"
-			],
-			[
-				"session",
-				"session_destroy"
-			],
-			[
-				"us",
-				"username"
-			],
-			[
-				"sess",
-				"session_start"
-			],
-			[
-				"u",
-				"username"
-			],
-			[
-				"user",
-				"username"
-			],
-			[
-				"le",
-				"length"
-			],
-			[
-				"dist",
-				"distances"
-			],
-			[
-				"direc",
-				"directionsDisplay"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "routes/web.php",
+			"file": "resources/views/layouts/sekolah.blade.php",
 			"settings":
 			{
-				"buffer_size": 13262,
+				"buffer_size": 25827,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
+				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/Belanja.php",
+			"file": "resources/views/sekolah/belanja/tambah.blade.php",
 			"settings":
 			{
-				"buffer_size": 2828,
-				"line_ending": "Unix"
+				"buffer_size": 13405,
+				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/Rka.php",
+			"file": "resources/views/sekolah/modal/rekening.blade.php",
 			"settings":
 			{
-				"buffer_size": 1537,
-				"line_ending": "Unix"
+				"buffer_size": 3674,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/Sekolah/LaporanController.php",
+			"settings":
+			{
+				"buffer_size": 97048,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -557,12 +567,16 @@
 		"selected_items":
 		[
 			[
-				"form",
-				"CodeFormatter: Format as Javascript Syntax"
-			],
-			[
 				"mark",
 				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"",
+				"About"
+			],
+			[
+				"form",
+				"CodeFormatter: Format as Javascript Syntax"
 			],
 			[
 				"install",
@@ -619,10 +633,6 @@
 			[
 				"enab",
 				"Package Control: Enable Package"
-			],
-			[
-				"",
-				"About"
 			],
 			[
 				"packa",
@@ -695,161 +705,152 @@
 	[
 		"/C/laragon/www/bos",
 		"/C/laragon/www/bos/app",
-		"/C/laragon/www/bos/app/Exceptions",
-		"/C/laragon/www/bos/app/Helpers",
 		"/C/laragon/www/bos/app/Http",
 		"/C/laragon/www/bos/app/Http/Controllers",
-		"/C/laragon/www/bos/app/Http/Controllers/Admin",
 		"/C/laragon/www/bos/app/Http/Controllers/Sekolah",
-		"/C/laragon/www/bos/app/Http/Controllers/Sekolah/Master",
 		"/C/laragon/www/bos/resources",
 		"/C/laragon/www/bos/resources/views",
 		"/C/laragon/www/bos/resources/views/admin",
-		"/C/laragon/www/bos/resources/views/admin/penerimaan",
 		"/C/laragon/www/bos/resources/views/layouts",
 		"/C/laragon/www/bos/resources/views/sekolah",
 		"/C/laragon/www/bos/resources/views/sekolah/belanja",
-		"/C/laragon/www/bos/resources/views/sekolah/belanja/modal",
-		"/C/laragon/www/bos/resources/views/sekolah/belanja/persediaan",
-		"/C/laragon/www/bos/resources/views/sekolah/laporan",
 		"/C/laragon/www/bos/resources/views/sekolah/modal",
-		"/C/laragon/www/bos/resources/views/sekolah/persediaan",
 		"/C/laragon/www/bos/routes"
 	],
 	"file_history":
 	[
-		"/C/laragon/www/bos/app/Http/Controllers/Admin/SekolahController.php",
 		"/C/laragon/www/bos/resources/views/layouts/sekolah.blade.php",
-		"/C/laragon/www/bos/resources/views/sekolah/laporan/k7kab.blade.php",
-		"/C/laragon/www/bos/resources/views/sekolah/laporan/modal.blade.php",
-		"/C/laragon/www/bos/resources/views/sekolah/laporan/persediaan.blade.php",
-		"/C/laragon/www/bos/app/Http/Controllers/Sekolah/BelanjaPersediaanController.php",
-		"/C/laragon/www/bos/app/Http/Controllers/Sekolah/BelanjaModalController.php",
-		"/C/laragon/www/bos/app/Http/Controllers/Sekolah/BelanjaController.php",
-		"/C/laragon/www/bos/app/BelanjaPersediaan.php",
-		"/C/laragon/www/bos/resources/views/sekolah/belanja/persediaan/detail.blade.php",
-		"/C/laragon/www/bos/app/PersediaanTrx.php",
-		"/C/laragon/www/bos/app/Http/Controllers/Sekolah/TransaksiPersediaanController.php",
-		"/C/laragon/www/bos/app/Sekolah.php",
-		"/C/laragon/www/bos/resources/views/sekolah/belanja/index.blade.php",
-		"/C/laragon/www/bos/resources/views/sekolah/belanja/modal/detail.blade.php",
-		"/C/laragon/www/bos/app/BelanjaModal.php",
-		"/C/laragon/www/bos/app/Belanja.php",
-		"/C/laragon/www/bos/resources/views/sekolah/belanja/persediaan/tambah.blade.php",
-		"/C/laragon/www/bos/resources/views/sekolah/laporan/bku.blade.php",
-		"/C/laragon/www/bos/resources/views/sekolah/laporan/bukubank.blade.php",
-		"/C/laragon/www/bos/app/Http/Controllers/Sekolah/LaporanController.php",
-		"/C/laragon/www/bos/resources/views/layouts/admin.blade.php",
-		"/C/laragon/www/bos/resources/views/admin/penerimaan/tambah.blade.php",
-		"/C/laragon/www/amanbos/lap_belanja_modal.php",
-		"/C/laragon/www/bos/app/Helpers/Helper.php",
-		"/C/laragon/www/bos/app/KasTrx.php",
-		"/C/laragon/www/bos/resources/views/sekolah/belanja/tambah.blade.php",
-		"/C/laragon/www/bos/resources/views/sekolah/modal/barangpersediaan.blade.php",
-		"/C/laragon/www/bos/database/migrations/2020_03_14_091730_create_belanja_persediaans.php",
-		"/C/laragon/www/amanbos/laporanbmodal.php",
-		"/C/laragon/www/amanbos/belanjamodal.php",
-		"/C/laragon/www/amanbos/k7kab.php",
-		"/C/laragon/www/amanbos/bku_1.php",
-		"/C/laragon/www/bos/resources/views/sekolah/laporan/bukutunai.blade.php",
-		"/C/laragon/www/bos/resources/views/sekolah/laporan/bukupajak.blade.php",
-		"/C/laragon/www/blud/resources/views/puskesmas/laporan/bku_satu.blade.php",
-		"/C/laragon/www/bos/resources/views/sekolah/belanja/modal/index.blade.php",
-		"/C/laragon/www/bos/resources/views/sekolah/belanja/modal/tambah.blade.php",
-		"/C/laragon/www/bos/app/Pendapatan.php",
-		"/C/laragon/www/bos/app/KasTrxDetail.php",
-		"/C/laragon/www/bos/resources/views/sekolah/laporan/sptmh.blade.php",
-		"/C/laragon/www/bos/resources/views/sekolah/laporan/k7prov.blade.php",
-		"/C/laragon/www/bos/app/Http/Controllers/Sekolah/RkaController.php",
-		"/C/laragon/www/bos/resources/views/sekolah/rka/cetak.blade.php",
-		"/C/laragon/www/bos/app/Rka.php",
-		"/C/laragon/www/bos/resources/views/sekolah/rka/index.blade.php",
-		"/C/laragon/www/bos/resources/views/sekolah/laporan/realisasi.blade.php",
-		"/C/laragon/www/bos/resources/views/sekolah/laporan/sptj.blade.php",
-		"/C/laragon/www/bos/app/Http/Controllers/Sekolah/Master/SelectDataController.php",
-		"/C/laragon/www/bos/resources/views/sekolah/belanja/persediaan/index.blade.php",
-		"/C/laragon/www/bos/resources/views/sekolah/modal/rekening.blade.php",
-		"/C/laragon/etc/apache2/sites-enabled/auto.bos.test.conf",
-		"/C/Users/Acer/AppData/Local/Temp/BvSshSftp/Bv007a6f/Bv007a6f/.htaccess",
-		"/C/laragon/www/bos/database/migrations/2020_03_05_200750_create_belanja_modals.php",
-		"/C/laragon/www/bos/resources/views/auth/login.blade.php",
-		"/C/laragon/www/bos/resources/views/auth/guest.blade.php",
-		"/C/laragon/www/bos/app/Http/Controllers/Admin/PenerimaanController.php",
-		"/C/laragon/www/bos/app/Http/Controllers/Admin/PaguController.php",
-		"/C/laragon/www/bos/database/migrations/2020_02_29_162332_create_belanjas.php",
-		"/C/Users/Acer/AppData/Local/Temp/BvSshSftp/Bv003a7c/Bv003a7c/laravel.log",
-		"/C/laragon/www/bos/resources/views/sekolah/profil/index.blade.php",
-		"/C/laragon/www/bos/resources/views/sekolah/profil/edit.blade.php",
-		"/C/laragon/www/bos/resources/views/sekolah/profil/passwordedit.blade.php",
-		"/C/laragon/www/dadang/config/header.php",
-		"/C/laragon/www/dadang/index.php",
-		"/C/laragon/www/dadang/login.php",
-		"/C/laragon/www/dadang/register.php",
-		"/C/laragon/www/bos/resources/views/admin/penerimaan/index.blade.php",
-		"/C/laragon/www/bos/app/Http/Controllers/Sekolah/ProfilController.php",
-		"/C/Users/Acer/AppData/Local/Temp/BvSshSftp/Bv003748/Bv003748/.env",
-		"/C/laragon/www/bos/.gitignore",
-		"/C/laragon/www/bos/app/Http/Controllers/Admin/TransaksiPersediaanController.php",
-		"/C/laragon/www/bos/resources/views/admin/persediaan/penggunaan.blade.php",
-		"/C/laragon/www/bos/resources/views/admin/persediaan/penyesuaian.blade.php",
-		"/C/laragon/www/bos/resources/views/admin/sekolah/index.blade.php",
-		"/C/laragon/www/bos/app/Kecamatan.php",
-		"/C/laragon/www/bos/resources/views/admin/persediaan/stok.blade.php",
-		"/C/laragon/www/bos/resources/views/sekolah/persediaan/penggunaan.blade.php",
-		"/C/laragon/www/bos/app/Http/Controllers/Sekolah/TransaksiKasController.php",
-		"/C/laragon/www/bos/resources/views/sekolah/persediaan/penyesuaian.blade.php",
-		"/C/laragon/www/bos/resources/views/admin/rka.blade.php",
-		"/C/laragon/www/bos/app/Http/Controllers/Admin/RkaController.php",
-		"/C/laragon/www/bos/routes/web.php",
-		"/C/laragon/www/bos/resources/views/admin/kas/saldo.blade.php",
-		"/C/laragon/www/bos/app/Saldo.php",
-		"/C/laragon/www/bos/resources/views/admin/kas/saldolalu.blade.php",
-		"/C/laragon/www/bos/app/Http/Controllers/Admin/KasController.php",
-		"/C/laragon/www/bos/app/Http/Controllers/Sekolah/KasController.php",
-		"/C/laragon/www/bos/resources/views/sekolah/persediaan/tambah.blade.php",
-		"/C/laragon/www/bos/app/BarangPersediaan.php",
-		"/C/laragon/www/bos/vendor/mockery/mockery/tests/Mockery/Fixtures/SemiReservedWordsAsMethods.php",
 		"/C/laragon/www/bos/resources/views/sekolah/rka/tambah.blade.php",
+		"/C/laragon/www/bos/app/Http/Controllers/Admin/BelanjaController.php",
+		"/C/Users/Acer/AppData/Local/Temp/BvSshSftp/Bv0027ed/Bv0027ed/.gitignore",
+		"/C/laragon/www/blud/composer.json",
+		"/C/laragon/etc/apache2/sites-enabled/auto.bos.test.conf",
+		"/C/laragon/etc/apache2/sites-enabled/auto.penjagaan.test.conf",
+		"/C/laragon/etc/apache2/sites-enabled/auto.penjagaan2.test.conf",
+		"/C/laragon/bin/apache/httpd-2.4.35-win64-VC15/logs/access.log",
+		"/C/laragon/bin/apache/httpd-2.4.35-win64-VC15/logs/error.log",
+		"/C/laragon/etc/apache2/sites-enabled/auto.blud.test.conf",
+		"/C/laragon/etc/apache2/httpd-ssl.conf",
+		"/C/laragon/www/bos/app/Http/Controllers/Admin/PaguController.php",
+		"/C/laragon/www/bos/app/Http/Controllers/Admin/PenerimaanController.php",
+		"/C/laragon/www/bos/app/KasTrx.php",
+		"/C/laragon/www/bos/app/Http/Controllers/Sekolah/RkaController.php",
+		"/C/laragon/www/bos/app/Http/Controllers/Sekolah/SaldoAwalController.php",
+		"/C/laragon/www/bos/app/Http/Controllers/Admin/TransaksiPersediaanController.php",
+		"/C/laragon/www/bos/resources/views/sekolah/laporan/persediaantahun.blade.php",
+		"/C/laragon/www/bos/resources/views/admin/penerimaan/upload.blade.php",
+		"/C/laragon/www/bos/resources/views/admin/pagu/upload.blade.php",
+		"/C/laragon/www/bos/resources/views/admin/pagu/updateupload.blade.php",
+		"/C/laragon/www/bos/app/Http/Controllers/Admin/DashboardController.php",
+		"/C/laragon/www/bos/routes/web.php",
+		"/C/laragon/www/bos/app/Http/Controllers/Sekolah/BelanjaModalThlaluController.php",
+		"/C/laragon/www/bos/resources/views/sekolah/pagu.blade.php",
+		"/C/laragon/www/bos/app/Http/Controllers/Sekolah/PaguController.php",
+		"/C/laragon/www/bos/resources/views/sekolah/kas/saldoawalv2.blade.php",
+		"/C/laragon/www/bos/resources/views/admin/pagu/index.blade.php",
+		"/C/laragon/www/bos/resources/views/admin/laporan/persediaantahun.blade.php",
+		"/C/laragon/www/bos/app/Http/Controllers/Sekolah/LaporanController.php",
+		"/C/laragon/www/bos/app/BarangPersediaan.php",
+		"/C/laragon/www/bos/app/Http/Controllers/Sekolah/BelanjaController.php",
+		"/C/laragon/www/bos/app/Http/Controllers/Sekolah/BelanjaThlaluController.php",
+		"/C/laragon/www/bos/resources/views/admin/laporan/modal.blade.php",
+		"/C/laragon/www/bos/app/Http/Controllers/Admin/ProfilController.php",
+		"/C/laragon/www/bos/app/Http/Controllers/Admin/LaporanController.php",
 		"/C/laragon/www/bos/.env",
-		"/C/laragon/www/bos/app/Http/Controllers/Sekolah/RkaLimitController.php",
-		"/C/laragon/www/bos/resources/views/sekolah/persediaan/stok.blade.php",
-		"/C/laragon/www/bos/resources/views/sekolah/kas/transaksi/index.blade.php",
-		"/C/laragon/www/bos/app/StokAwal.php",
-		"/C/laragon/www/bos/app/SaldoAwal.php",
-		"/C/laragon/www/amanbos/app/Models/Belanja.php",
-		"/C/laragon/www/amanbos/app/Models/RkaSisa.php",
-		"/C/laragon/www/amanbos/app/Models/Rka.php",
-		"/C/laragon/www/amanbos/app/Models/Sekolah.php",
-		"/C/laragon/www/blud/database/migrations/2020_02_15_091048_create_pendapatans.php",
-		"/C/laragon/www/blud/database/migrations/2020_02_15_090813_create_transaksi_kas_details.php",
-		"/C/laragon/www/blud/database/migrations/2020_02_15_090603_create_transaksi_kas.php",
-		"/C/laragon/www/blud/database/migrations/2020_02_15_090307_create_saldo_awals.php",
-		"/C/laragon/www/blud/database/migrations/2020_02_15_090124_create_saldos.php",
-		"/C/laragon/www/blud/database/migrations/2020_02_15_092754_create_belanjas.php",
-		"/C/laragon/www/blud/database/migrations/2020_02_15_091433_create_rbas.php",
-		"/C/laragon/www/blud/database/migrations/2020_02_15_085332_create_rekenings.php",
-		"/C/laragon/www/blud/resources/views/puskesmas/rba/index.blade.php",
-		"/C/laragon/www/blud/app/Http/Controllers/Puskesmas/RbaController.php",
-		"/C/laragon/www/blud/routes/web.php",
-		"/C/laragon/www/blud/resources/views/layouts/admin.blade.php",
-		"/C/laragon/www/blud/resources/views/layouts/puskesmas.blade.php",
-		"/C/laragon/www/blud/database/migrations/2020_02_02_070312_create_puskesmases.php",
-		"/C/laragon/www/blud/resources/views/auth/login.blade.php",
-		"/C/laragon/www/blud/config/auth.php",
-		"/C/laragon/www/blud/app/Http/Controllers/Auth/LoginController.php",
-		"/C/laragon/www/blud/app/Http/Controllers/Auth/RegisterController.php",
-		"/C/laragon/www/blud/resources/views/auth/register.blade.php",
-		"/C/laragon/www/blud/app/Rba.php",
-		"/C/laragon/www/blud/app/Puskesmas.php",
+		"/C/laragon/www/bos/resources/views/layouts/admin.blade.php",
+		"/C/laragon/bin/mysql/mariadb-10.3.13-winx64/my.ini.lama",
+		"/C/Users/Acer/Desktop/bos-connections.ncx",
+		"/C/laragon/www/sulfat/.env",
+		"/D/Galaksi/laravel58/controllers.md",
+		"/C/laragon/www/rscasmgrwj/bootstrap/cache/config.php",
+		"/C/laragon/www/labkes/config/db.php",
+		"/C/laragon/bin/mysql/mariadb-10.3.13-winx64/my.ini",
+		"/D/Galaksi/rio/padimqtt2/package.json",
+		"/D/diabetes/Flink/app/google-services.json",
+		"/C/Users/Acer/Downloads/gulasehat/google-services.json",
+		"/D/Galaksi/laravel58/collections.md",
+		"/C/Users/Acer/AppData/Local/Temp/BvSshSftp/Bv000fec/Bv000fec/.env",
+		"/D/Galaksi/Papa/BOS-20200608023639.sql",
+		"/C/Users/Acer/AppData/Local/Temp/BvSshSftp/Bv006b67/Bv006b67/.env",
+		"/C/laragon/www/bos/resources/views/admin/sekolah/setperiode.blade.php",
+		"/C/laragon/www/bos/resources/views/admin/sekolah/ubahperiode.blade.php",
+		"/C/laragon/www/bos/resources/views/admin/sekolah/setlockrka.blade.php",
+		"/C/laragon/www/bos/resources/views/admin/sekolah/index.blade.php",
+		"/C/laragon/www/bos/app/Http/Controllers/Admin/SekolahController.php",
+		"/C/laragon/www/bos/resources/views/sekolah/index.blade.php",
+		"/C/laragon/www/bos/app/Http/Controllers/Sekolah/BelanjaModalController.php",
+		"/C/laragon/www/bos/app/Http/Controllers/Sekolah/BelanjaPersediaanController.php",
+		"/C/laragon/www/bos/app/Http/Controllers/Sekolah/TransaksiKasController.php",
+		"/C/laragon/www/bos/app/Http/Controllers/Sekolah/TransaksiPersediaanController.php",
+		"/C/laragon/www/bos/resources/views/sekolah/belanja/tambah.blade.php",
+		"/C/laragon/www/bos/resources/views/sekolah/kas/transaksi/tambah.blade.php",
+		"/C/laragon/www/bos/app/Sekolah.php",
+		"/C/laragon/www/bos/app/Belanja.php",
+		"/C/laragon/www/bos/resources/views/admin/laporan/realisasi.blade.php",
+		"/C/laragon/www/bos/resources/views/admin/laporan/k8.blade.php",
+		"/C/laragon/www/bos/resources/views/admin/laporan/k8_bulanan.blade.php",
+		"/C/laragon/www/bos/resources/views/admin/laporan/persediaan.blade.php",
+		"/C/laragon/www/bos/resources/views/admin/laporan/pajak.blade.php",
+		"/C/laragon/www/bos/resources/views/admin/laporan/saldo.blade.php",
+		"/C/Users/Acer/Downloads/Compressed/ExambroClient_18.1223/ExambroClient_18.1223/ExamBrowser.exe.Config",
+		"/C/laragon/www/bos/bos.sublime-project",
+		"/C/laragon/www/bos/database/migrations/2020_02_10_003305_create_rkas.php",
+		"/C/laragon/www/bos/database/migrations/2020_05_10_161052_edit_sekolahs_add_periode_awal_akhir.php",
+		"/C/laragon/www/bos/app/Periode.php",
+		"/C/laragon/www/bos/database/migrations/2020_05_10_155338_create_periodes.php",
+		"/C/laragon/www/bos/resources/views/sekolah/master/barangpersediaan.blade.php",
+		"/C/laragon/www/bos/app/Http/Controllers/Sekolah/Master/BarangPersediaanController.php",
+		"/C/laragon/www/bos/database/migrations/2020_05_07_172222_edit_barang_persediaans_addjenis.php",
+		"/C/laragon/www/bos/resources/views/admin/index.blade.php",
+		"/C/laragon/www/bos/resources/views/sekolah/persediaan/tambah.blade.php",
+		"/C/laragon/www/bos/resources/views/sekolah/persediaan/penyesuaian.blade.php",
+		"/C/Users/Acer/Downloads/Compressed/Apex_v8.0/html/demo-1/inputs.html",
+		"/C/laragon/www/bos/app/Http/Controllers/Sekolah/DashboardController.php",
+		"/C/laragon/www/bos/resources/views/admin/penerimaan/index.blade.php",
+		"/C/laragon/www/bos/resources/views/sekolah/belanja/persediaan/index.blade.php",
+		"/C/laragon/www/bos/resources/views/sekolah/rka/index.blade.php",
+		"/C/laragon/www/bos/resources/views/sekolah/laporan/k7provv2.blade.php",
+		"/C/laragon/www/bos/resources/views/sekolah/laporan/k7kabv2.blade.php",
+		"/C/laragon/www/bos/resources/views/sekolah/kas/saldoawal.blade.php",
+		"/C/laragon/www/bos/resources/views/sekolah/master/kegiatan.blade.php",
+		"/C/laragon/www/bos/resources/views/sekolah/belanja/index.blade.php",
+		"/C/laragon/www/bos/app/Http/Controllers/Sekolah/Master/KegiatanController.php",
+		"/C/laragon/www/bos/app/Helpers/Helper.php",
+		"/C/laragon/www/bos/app/Pagu.php",
+		"/C/laragon/www/bos/app/Saldo.php",
+		"/C/Users/Acer/Downloads/Compressed/Apex_v8.0/html/demo-1/basic-cards.html",
+		"/C/Users/Acer/AppData/Local/Temp/BvSshSftp/Bv000cb8/Bv000cb8/SaldoAwalController.php",
+		"/C/laragon/www/sma3/index.php",
+		"/C/laragon/www/sma3/app/models/admin/Pos_model.php",
+		"/C/laragon/www/sma3/stockmanager.sql",
+		"/C/laragon/www/sma3/system/database/drivers/mysqli/mysqli_driver.php",
+		"/C/laragon/www/sma3/app/logs/log-2020-04-23.php",
+		"/C/laragon/www/sma3/system/database/DB.php",
+		"/C/laragon/www/sma3/system/database/DB_driver.php",
+		"/C/laragon/www/sma3/app/config/routes.php",
+		"/C/laragon/www/sma3/app/config/database.php",
+		"/C/laragon/www/sma3/app/controllers/admin/Pos.php",
+		"/C/laragon/www/sma3/app/config/constants.php",
+		"/C/laragon/www/sma3/system/core/Config.php",
+		"/C/laragon/www/bos/database/migrations/2020_04_13_133634_add_status_rka_to_sekolahs.php",
+		"/C/laragon/www/bos/app/Http/Controllers/Admin/BelanjaModalController.php",
+		"/C/laragon/www/bos/resources/views/admin/belanja/modal/index.blade.php",
+		"/C/laragon/www/bos/resources/views/sekolah/belanja/modal/index.blade.php",
+		"/C/laragon/www/bos/app/Http/Controllers/Admin/BelanjaPersediaanController.php",
+		"/C/laragon/www/bos/resources/views/admin/belanja/persediaan/index.blade.php",
+		"/C/laragon/www/bos/app/Kegiatan.php",
+		"/C/laragon/www/bos/app/BelanjaPersediaan.php",
+		"/C/laragon/www/bos/resources/views/sekolah/persediaan/penggunaan.blade.php",
+		"/C/laragon/www/bos/app/Http/Controllers/Sekolah/Master/SelectDataController.php",
+		"/C/laragon/www/bos/app/Rka.php",
+		"/C/laragon/www/bos/app/PersediaanTrx.php",
 		"/C/laragon/www/blud/.env",
-		"/C/laragon/www/blud/resources/views/puskesmas/index.blade.php",
-		"/C/laragon/www/blud/database/migrations/2020_02_16_035527_add_kode_opd_to_puskesmases_table.php",
-		"/C/laragon/www/blud/app/Http/Middleware/RedirectIfAuthenticated.php",
-		"/C/laragon/www/blud/resources/views/auth/guest.blade.php"
+		"/C/laragon/www/endah/halaman/proses_prediksi.php",
+		"/C/laragon/www/perpus/.htaccess"
 	],
 	"find":
 	{
-		"height": 88.0
+		"height": 44.0
 	},
 	"find_in_files":
 	{
@@ -864,6 +865,111 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"persediaan",
+			"bank",
+			"buku_bank",
+			"pagu",
+			"alokasi triwulan",
+			"update",
+			"persediaan_",
+			"persediaan",
+			"cawu",
+			"persediaan",
+			"doesntExist",
+			"doesntExists",
+			"filter",
+			"proses_upload",
+			"persediaan",
+			"sa",
+			"tanggal",
+			"create",
+			"update",
+			"buku",
+			"bku",
+			"awal",
+			"k7_",
+			"modal",
+			"persediaan",
+			"autofilter",
+			"get",
+			"persediaan",
+			"nama_kecamatan",
+			"persediaan",
+			"k7",
+			"k7_pr",
+			"triwulan",
+			"locale",
+			"$file=",
+			"ajax",
+			"tanggal",
+			"$bulan",
+			"persediaan",
+			"rupiah",
+			"judulModal",
+			"Tambah",
+			"add",
+			"bulan_sebelumnya",
+			"belanja_per",
+			"addMonthNoOverflow()",
+			"addMonthNoOverflow",
+			"addMonth",
+			"addMonthNoOverflow",
+			"persediaan",
+			"k7",
+			"proses_buku",
+			"bukubank",
+			"bukutunai",
+			"buku_tunai",
+			"addMonth",
+			"persediaan",
+			"bku",
+			"$a[]",
+			"get",
+			"details",
+			"detail",
+			"fetch_pro",
+			"count_all_results",
+			"count all",
+			"count",
+			"user",
+			"db",
+			"pos",
+			"dbuser",
+			"db",
+			"$this",
+			"username",
+			"name",
+			"a2",
+			"jenis",
+			"table",
+			"detail",
+			"pusk",
+			"persediaan",
+			"iofac",
+			"upload",
+			"px-2 py-3",
+			"<h3>",
+			"card",
+			"delete",
+			"sisa",
+			"des",
+			"di",
+			"destroy",
+			"sudah di",
+			"red",
+			"sekolah",
+			"admin",
+			"sekolah",
+			"qty",
+			"keterangan",
+			"sekolah",
+			"profil",
+			"informasi",
+			"$user",
+			"sekolah",
+			"::",
+			"db",
+			"total",
 			"perubahan",
 			"awal",
 			"create",
@@ -886,14 +992,7 @@
 			"Semarang",
 			"sekolah",
 			"Sekolah",
-			"sekolah",
-			"puskesmass",
-			"sekolah",
-			"kas",
-			"persedi",
-			"side",
-			"BOS",
-			"ico"
+			"sekolah"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -901,6 +1000,11 @@
 		"regex": false,
 		"replace_history":
 		[
+			"addMonthsNoOverflow()",
+			"addMonthsNoOverflow",
+			"addMonthNoOverflow",
+			"px-3 py-3",
+			"<h3 class=\"text-bold-600\">",
 			"sekolah",
 			"td>",
 			"<td",
@@ -920,124 +1024,124 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 3,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "routes/web.php",
+					"file": "resources/views/layouts/sekolah.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 13262,
+						"buffer_size": 25827,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3669,
-								3669
+								13855,
+								13855
 							]
 						],
 						"settings":
 						{
-							"SL.13.region_keys":
-							[
-							],
-							"SL.135.region_keys":
-							[
-							],
-							"SL.165.region_keys":
-							[
-							],
-							"SL.173.region_keys":
-							[
-								"sublime_linter.protected_regions"
-							],
-							"SL.26.region_keys":
-							[
-								"sublime_linter.protected_regions"
-							],
-							"SL.368.region_keys":
-							[
-								"sublime_linter.protected_regions"
-							],
-							"SL.46.region_keys":
-							[
-							],
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"syntax": "Packages/Laravel Blade Highlighter/blade.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 4824.0,
+						"translation.y": 7576.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "resources/views/sekolah/belanja/tambah.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 13405,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								10377,
+								10382
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Laravel Blade Highlighter/blade.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 5429.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "app/Belanja.php",
+					"buffer": 2,
+					"file": "resources/views/sekolah/modal/rekening.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2828,
+						"buffer_size": 3674,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								3437,
+								3437
 							]
 						],
 						"settings":
 						{
-							"SL.127.region_keys":
-							[
-							],
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
+							"syntax": "Packages/Laravel Blade Highlighter/blade.sublime-syntax",
+							"tab_size": 6,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 4748.8,
+						"translation.y": 3895.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "app/Rka.php",
-					"semi_transient": true,
+					"buffer": 3,
+					"file": "app/Http/Controllers/Sekolah/LaporanController.php",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1537,
+						"buffer_size": 97048,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								596,
-								564
+								23702,
+								23702
 							]
 						],
 						"settings":
 						{
-							"SL.150.region_keys":
-							[
-							],
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 648.8,
+						"translation.y": 18424.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1048,7 +1152,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 49.0
+		"height": 44.0
 	},
 	"input":
 	{
@@ -1093,7 +1197,7 @@
 	"project": "bos.sublime-project",
 	"replace":
 	{
-		"height": 94.0
+		"height": 84.0
 	},
 	"save_all_on_build": false,
 	"select_file":
@@ -1107,7 +1211,7 @@
 	},
 	"select_project":
 	{
-		"height": 514.4,
+		"height": 514.666666667,
 		"last_filter": "",
 		"selected_items":
 		[
@@ -1116,7 +1220,7 @@
 				"C:\\laragon\\www\\blud\\blud.sublime-project"
 			]
 		],
-		"width": 386.4
+		"width": 386.666666667
 	},
 	"select_symbol":
 	{
@@ -1135,7 +1239,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 398.0,
+	"side_bar_width": 278.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

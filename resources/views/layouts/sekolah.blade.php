@@ -216,7 +216,7 @@
                                 <li>
                                     <a href="{{ route('sekolah.persediaan.penggunaan') }}" class="menu-item">Penggunaan</a>
                                 </li>
-                                
+
                             </ul>
                         </li> --}}
 
@@ -228,6 +228,15 @@
                                 </span>
                             </a>
                             <ul class="menu-content">
+                                <li>
+                                    <a href="{{ route('sekolah.laporan.realisasi') }}" class="menu-item">Lap Realisasi</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('sekolah.laporan.sptj') }}" class="menu-item">SPTJ</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('sekolah.laporan.sptmh') }}" class="menu-item">SPTMH</a>
+                                </li>
                                 <li>
                                     <a href="{{ route('sekolah.laporan.bku') }}" class="menu-item">BKU</a>
                                 </li>
@@ -241,21 +250,20 @@
                                     <a href="{{ route('sekolah.laporan.bukupajak') }}" class="menu-item">Buku Pajak</a>
                                 </li>
                                 <li>
+                                    <a href="{{ route('sekolah.laporan.k7kabv2') }}" class="menu-item">K7 Kab Bulanan</a>
+                                </li>
+                                <li>
                                     <a href="{{ route('sekolah.laporan.k7provv2') }}" class="menu-item">K7 Prov Bulanan</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('sekolah.laporan.modal') }}" class="menu-item">Belanja Modal</a>
                                 </li>
 
                                 {{-- <li class="has-sub">
                                     <a href="javascript:void(0)" class="menu-item">Th Berjalan</a>
                                     <ul class="menu-content">
-                                        <li>
-                                            <a href="{{ route('sekolah.laporan.realisasi') }}" class="menu-item">Lap Realisasi</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ route('sekolah.laporan.sptj') }}" class="menu-item">SPTJ</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ route('sekolah.laporan.sptmh') }}" class="menu-item">SPTMH</a>
-                                        </li>
+
+
                                         <li>
                                             <a href="{{ route('sekolah.laporan.k7prov') }}" class="menu-item">K7 Provinsi</a>
                                         </li>
@@ -265,12 +273,8 @@
                                         <li>
                                             <a href="{{ route('sekolah.laporan.k7kab') }}" class="menu-item">K7 Kabupaten</a>
                                         </li>
-                                        <li>
-                                            <a href="{{ route('sekolah.laporan.k7kabv2') }}" class="menu-item">K7 Kab Bulanan</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ route('sekolah.laporan.modal') }}" class="menu-item">Belanja Modal</a>
-                                        </li>
+
+
                                         <li>
                                             <a href="{{ route('sekolah.laporan.persediaantahun') }}" class="menu-item">Belanja Persediaan</a>
                                         </li>
@@ -286,7 +290,7 @@
                                         <li>
                                             <a href="{{ route('sekolah.laporan.bukupajak') }}" class="menu-item">Buku Pajak</a>
                                         </li>
-                                        
+
                                     </ul>
                                 </li> --}}
 
@@ -301,7 +305,7 @@
                                 </span>
                             </a>
                         </li>
-                        
+
                     </ul>
                 </div>
             </div>

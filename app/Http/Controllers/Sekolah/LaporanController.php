@@ -52,14 +52,14 @@ class LaporanController extends Controller
 				# code...
 				$twhuruf= "IV";
 				break;
-			
+
 			default:
 				# code...
 				$twhuruf="-";
 				break;
 		}
 
-		$deskripsi= "Bersama ini kami laporkan realisasi atas penggunaan Dana BOS untuk Triwulan ".$twhuruf."  sebagai berikut:";
+		$deskripsi= "Bersama ini kami laporkan realisasi atas penggunaan Dana BOS untuk Caturwulan ".$twhuruf."  sebagai berikut:";
 
 		$total_rkaberjalan = $sekolah->rkas()->where([
 			'ta' => $ta,
@@ -69,7 +69,7 @@ class LaporanController extends Controller
 		$rka_rek2 = $sekolah->rkas()->where('ta','=',$ta)->parentRekening(2)->sum('jumlah');
 		$rka_rek3 = $sekolah->rkas()->where('ta','=',$ta)->parentRekening(3)->sum('jumlah');
 		$rka_rek4 = $sekolah->rkas()->where('ta','=',$ta)->parentRekening(4)->sum('jumlah');
-		$rka_rek5 = $sekolah->rkas()->where('ta','=',$ta)->parentRekening(5)->sum('jumlah');
+//		$rka_rek5 = $sekolah->rkas()->where('ta','=',$ta)->parentRekening(5)->sum('jumlah');
 
 		// $belanjar1_sd_twlalu = ($triwulan-1) ? $sekolah->rkas()->where('ta','=',$ta)->parentRekening(1)->sum($realisasi_twlalu) : 0;
 		// $belanjar2_sd_twlalu = ($triwulan-1) ? $sekolah->rkas()->where('ta','=',$ta)->parentRekening(2)->sum($realisasi_twlalu) : 0;
@@ -80,19 +80,19 @@ class LaporanController extends Controller
         $belanjar2_sd_twlalu = $sekolah->belanjas()->ta($ta)->parentRekening(2)->sampaiTriwulan($triwulan-1)->sum('nilai');
         $belanjar3_sd_twlalu = $sekolah->belanjas()->ta($ta)->parentRekening(3)->sampaiTriwulan($triwulan-1)->sum('nilai');
         $belanjar4_sd_twlalu = $sekolah->belanjas()->ta($ta)->parentRekening(4)->sampaiTriwulan($triwulan-1)->sum('nilai');
-        $belanjar5_sd_twlalu = $sekolah->belanjas()->ta($ta)->parentRekening(5)->sampaiTriwulan($triwulan-1)->sum('nilai');
-        
+//        $belanjar5_sd_twlalu = $sekolah->belanjas()->ta($ta)->parentRekening(5)->sampaiTriwulan($triwulan-1)->sum('nilai');
+
 		$belanjar1 = $sekolah->rkas()->where('ta','=',$ta)->parentRekening(1)->sum($realisasi_triwulan);
 		$belanjar2 = $sekolah->rkas()->where('ta','=',$ta)->parentRekening(2)->sum($realisasi_triwulan);
 		$belanjar3 = $sekolah->rkas()->where('ta','=',$ta)->parentRekening(3)->sum($realisasi_triwulan);
 		$belanjar4 = $sekolah->rkas()->where('ta','=',$ta)->parentRekening(4)->sum($realisasi_triwulan);
-		$belanjar5 = $sekolah->rkas()->where('ta','=',$ta)->parentRekening(5)->sum($realisasi_triwulan);
+//		$belanjar5 = $sekolah->rkas()->where('ta','=',$ta)->parentRekening(5)->sum($realisasi_triwulan);
 
 		$nama_sekolah= $sekolah->nama_sekolah;
 		$nama_kepsek= $sekolah->nama_kepsek;
 		$nip_kepsek= $sekolah->nip_kepsek;
 
-		$tanggal= AkhirTriwulan($triwulan, $ta)->locale('id_ID')->isoFormat('LL');
+		$tanggal= AkhirCaturwulan($triwulan, $ta)->locale('id_ID')->isoFormat('LL');
 		$tanggal_tempat= "Kab. Semarang, ".$tanggal;
 
 		// return json_encode($tanggal_tempat);
@@ -107,19 +107,19 @@ class LaporanController extends Controller
 		$worksheet->getCell('rka_rek2')->setValue($rka_rek2);
 		$worksheet->getCell('rka_rek3')->setValue($rka_rek3);
 		$worksheet->getCell('rka_rek4')->setValue($rka_rek4);
-		$worksheet->getCell('rka_rek5')->setValue($rka_rek5);
+//		$worksheet->getCell('rka_rek5')->setValue($rka_rek5);
 
 		$worksheet->getCell('belanjar1_sd_twlalu')->setValue($belanjar1_sd_twlalu);
 		$worksheet->getCell('belanjar2_sd_twlalu')->setValue($belanjar2_sd_twlalu);
 		$worksheet->getCell('belanjar3_sd_twlalu')->setValue($belanjar3_sd_twlalu);
 		$worksheet->getCell('belanjar4_sd_twlalu')->setValue($belanjar4_sd_twlalu);
-		$worksheet->getCell('belanjar5_sd_twlalu')->setValue($belanjar5_sd_twlalu);
+//		$worksheet->getCell('belanjar5_sd_twlalu')->setValue($belanjar5_sd_twlalu);
 
 		$worksheet->getCell('belanjar1')->setValue($belanjar1);
 		$worksheet->getCell('belanjar2')->setValue($belanjar2);
 		$worksheet->getCell('belanjar3')->setValue($belanjar3);
 		$worksheet->getCell('belanjar4')->setValue($belanjar4);
-		$worksheet->getCell('belanjar5')->setValue($belanjar5);
+//		$worksheet->getCell('belanjar5')->setValue($belanjar5);
 
 		$worksheet->getCell('tanggal_tempat')->setValue($tanggal_tempat);
 		$worksheet->getCell('nama_sekolah')->setValue($nama_sekolah);
@@ -130,7 +130,7 @@ class LaporanController extends Controller
         $writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
         $temp_file = tempnam(sys_get_temp_dir(), 'Excel');
         $writer->save($temp_file);
-        $file= 'Realisasi_tw'.$triwulan."_".$sekolah->npsn.'.xlsx';
+        $file= 'Realisasi_cw'.$triwulan."_".$sekolah->npsn.'.xlsx';
         $documento = file_get_contents($temp_file);
         unlink($temp_file);  // delete file tmp
         header("Content-Disposition: attachment; filename= ".$file."");
@@ -174,7 +174,7 @@ class LaporanController extends Controller
                     # code...
                     $twhuruf= "IV";
                     break;
-                
+
                 default:
                     # code...
                     $twhuruf="-";
@@ -186,19 +186,19 @@ class LaporanController extends Controller
         for ($i=1; $i <= $triwulan ; $i++) {
             if ($i==1) {
                 # code...
-                $twloop.="Triwulan ".twhuruf($i);
+                $twloop.="Caturwulan ".twhuruf($i);
             }
             elseif ($i<$triwulan) {
                 # code...
-                $twloop.=", Triwulan ".twhuruf($i);
+                $twloop.=", Caturwulan ".twhuruf($i);
             }
             elseif ($i==$triwulan){
-                $twloop.=" dan Triwulan ".twhuruf($i);
+                $twloop.=" dan Caturwulan ".twhuruf($i);
             }
         }
         $paragraf_terakhir= "penggunaan Dana BOS pada ".$twloop." Tahun Anggaran ".$ta." dengan rincian sebagai berikut:";
         // $saldo_thlalu= $sekolah->saldos()->where('ta','=',$ta-1)->sum('saldo_bank') + $sekolah->saldos()->where('ta','=',$ta-1)->sum('saldo_tunai');
-        $saldo_thlalu= $sekolah->pendapatans()->whereYear('tanggal', $ta)->where('sumber', 'SILPA BOS')->sum('nominal');      
+        $saldo_thlalu= $sekolah->pendapatans()->whereYear('tanggal', $ta)->where('tanggal', $ta."-01-01")->sum('nominal');
         // return $saldo_thlalu;
         $penerimaan_cw1=0;
         $penerimaan_cw2=0;
@@ -211,7 +211,7 @@ class LaporanController extends Controller
         // tw4= 101112 //cw3
         $cw = ($triwulan > 1) ?  ($triwulan > 2) ? 3 : 2 : 1 ;
         // return $cw;
-        for ($i=1; $i <= $cw ; $i++) { 
+        for ($i=1; $i <= $cw ; $i++) {
             ${$penerimaanpercw.$i} = $sekolah->pendapatans()->whereBetween('tanggal', [AwalCaturwulan($i, $ta), AkhirCaturwulan($i, $ta)])->sum('nominal');
         }
 
@@ -221,22 +221,22 @@ class LaporanController extends Controller
         $belanjar4_sd_tw_sekarang= $sekolah->belanjas()->ta($ta)->sampaiTriwulan($triwulan)->parentRekening(4)->sum('nilai');
         $belanjar5_sd_tw_sekarang= $sekolah->belanjas()->ta($ta)->sampaiTriwulan($triwulan)->parentRekening(5)->sum('nilai');
         $belanjar345_sd_tw_sekarang= $belanjar3_sd_tw_sekarang+$belanjar4_sd_tw_sekarang+$belanjar5_sd_tw_sekarang;
-        
-        $tanggal= AkhirTriwulan($triwulan, $ta)->locale('id_ID')->isoFormat('LL');
+
+        $tanggal= AkhirCaturwulan($triwulan, $ta)->locale('id_ID')->isoFormat('LL');
         $tanggal_tempat= "Kab. Semarang, ".$tanggal;
-        
-        if($triwulan<4){
-            $kas_tunai = $sekolah->saldo_awals()->where('periode','=',AwalTriwulan(($triwulan+1),$ta)->format('Y-m-d'))->sum('saldo_tunai');
+
+        if($triwulan<3){
+            $kas_tunai = $sekolah->saldo_awals()->where('periode','=',AwalCaturwulan(($triwulan+1),$ta)->format('Y-m-d'))->sum('saldo_tunai');
         }
         else{
-            $kas_tunai = $sekolah->saldo_awals()->where('periode','=',AwalTriwulan((($triwulan+1)-4), ($ta+1))->format('Y-m-d'))->sum('saldo_tunai');
+            $kas_tunai = $sekolah->saldo_awals()->where('periode','=',AwalCaturwulan((($triwulan+1)-3), ($ta+1))->format('Y-m-d'))->sum('saldo_tunai');
         }
         // return $kas_tunai;
 
     	// Excel
     	$spreadsheet = IOFactory::load('storage/format/sptj.xlsx');
         $worksheet = $spreadsheet->getActiveSheet();
-        
+
         $worksheet->getCell('nomor_sptj')->setValue($nomor_sptj);
         $worksheet->getCell('nama_sekolah')->setValue($nama_sekolah);
         $worksheet->getCell('kode_organisasi')->setValue($sekolah->npsn);
@@ -263,7 +263,7 @@ class LaporanController extends Controller
 	    $writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
 	    $temp_file = tempnam(sys_get_temp_dir(), 'Excel');
 	    $writer->save($temp_file);
-	    $file= 'SPTJ_tw_'.$triwulan."-".$sekolah->npsn.'.xlsx';
+	    $file= 'SPTJ_cw_'.$triwulan."-".$sekolah->npsn.'.xlsx';
 	    $documento = file_get_contents($temp_file);
 	    unlink($temp_file);  // delete file tmp
 	    header("Content-Disposition: attachment; filename= ".$file."");
@@ -284,7 +284,7 @@ class LaporanController extends Controller
         $npsn = $sekolah->npsn;
         $nomor_sptmh= $request->nomor_sptmh;
 
-        $tanggal= AkhirTriwulan($triwulan, $ta)->locale('id_ID')->isoFormat('LL');
+        $tanggal= AkhirCaturwulan($triwulan, $ta)->locale('id_ID')->isoFormat('LL');
         $tanggal_tanggal= strtoupper("Tanggal ".$tanggal);
         $tanggal_tempat= "Kab. Semarang, ".$tanggal;
 
@@ -311,14 +311,14 @@ class LaporanController extends Controller
                 # code...
                 $twhuruf= "IV";
                 break;
-            
+
             default:
                 # code...
                 $twhuruf="-";
                 break;
         }
 
-        $deskripsi= "Bertangungjawab penuh atas segala penerima hibah berupa uang yang diterima langsung pada triwulan ".$twhuruf;
+        $deskripsi= "Bertangungjawab penuh atas segala penerima hibah berupa uang yang diterima langsung pada caturwulan ".$twhuruf;
 
         $total_rkaberjalan = $sekolah->rkas()->where([
             'ta' => $ta,
@@ -328,7 +328,7 @@ class LaporanController extends Controller
         $realisasi_sd_twlalu = $sekolah->belanjas()->ta($ta)->sampaiTriwulan($triwulan-1)->sum('nilai');
         $realisasi_twsekarang= $sekolah->belanjas()->ta($ta)->triwulan($triwulan)->sum('nilai');
         // return $realisasi_twsekarang;
-        
+
     	// Excel
         $spreadsheet = IOFactory::load('storage/format/sptmh.xlsx');
         $worksheet = $spreadsheet->getActiveSheet();
@@ -351,7 +351,7 @@ class LaporanController extends Controller
         $writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
         $temp_file = tempnam(sys_get_temp_dir(), 'Excel');
         $writer->save($temp_file);
-        $file= 'SPTMH_tw_'.$triwulan."-".$sekolah->npsn.'.xlsx';
+        $file= 'SPTMH_cw_'.$triwulan."-".$sekolah->npsn.'.xlsx';
         $documento = file_get_contents($temp_file);
         unlink($temp_file);  // delete file tmp
         header("Content-Disposition: attachment; filename= ".$file."");
@@ -386,7 +386,7 @@ class LaporanController extends Controller
         $fromDate = AwalTriwulan($triwulan, $ta)->startOfMonth();
         $tillDate = AkhirTriwulan($triwulan, $ta)->endOfMonth();
         // return $tillDate;
-        
+
         if ($triwulan == 1) {
             $saldo_tw_lalu= $sekolah->pendapatans()
             ->where('sumber','SILPA BOS')
@@ -425,7 +425,7 @@ class LaporanController extends Controller
                         $qrka->where('komponen_pembiayaan_id', $pembiayaan_id);
                     })
                     ->sum('nilai');
-                
+
                 $program_kp[$p->id][$kp->id]=$program_kp_detail;
             }
         }
@@ -490,7 +490,7 @@ class LaporanController extends Controller
 
         $fromDate = Carbon::createFromFormat("!Y-n-j", $ta."-".($bulan_awal)."-1");
         $tillDate = Carbon::createFromFormat("!Y-n-j", $ta."-".($bulan_akhir)."-1")->endOfMonth();
-        
+
         $periode= $fromDate->locale('id_ID')->isoFormat('LL')." - ".$tillDate->locale('id_ID')->isoFormat('LL');
         // return $periode;
 
@@ -532,7 +532,7 @@ class LaporanController extends Controller
                         $qrka->where('komponen_pembiayaan_id', $pembiayaan_id);
                     })
                     ->sum('nilai');
-                
+
                 $program_kp[$p->id][$kp->id]=$program_kp_detail;
             }
         }
@@ -607,7 +607,7 @@ class LaporanController extends Controller
         // $nama_triwulan= "Triwulan ".$triwulan;
         $fromDate = Carbon::createFromFormat("!Y-n-j", $ta."-".($bulan[0])."-1");
         $tillDate = Carbon::createFromFormat("!Y-n-j", $ta."-".($bulan[2])."-1")->endOfMonth();
-        
+
         if ($triwulan == 1) {
             $saldo_twlalu= $sekolah->pendapatans()
             ->where('sumber','SILPA BOS')
@@ -631,7 +631,7 @@ class LaporanController extends Controller
 
         $rek = KodeRekening::whereNotNull('parent_id')->orderBy('parent_id')->get();
         // return $rek;
-        
+
         foreach ($rek as $key => $item) {
             // $belanjaperrekening = $sekolah->belanjas()->ta($ta)->rekening($item->id);
             switch ($item->parent_id) {
@@ -639,7 +639,7 @@ class LaporanController extends Controller
                     $belanja_rek1_bln0 = $sekolah->belanjas()->ta($ta)->rekening($item->id)->whereMonth('tanggal', $bulan[0])->sum('nilai');
                     $belanja_rek1_bln1 = $sekolah->belanjas()->ta($ta)->rekening($item->id)->whereMonth('tanggal', $bulan[1])->sum('nilai');
                     $belanja_rek1_bln2 = $sekolah->belanjas()->ta($ta)->rekening($item->id)->whereMonth('tanggal', $bulan[2])->sum('nilai');
-                    
+
                     $belanja_pegawai[$key][0] = $belanja_rek1_bln0;
                     $belanja_pegawai[$key][1] = $belanja_rek1_bln1;
                     $belanja_pegawai[$key][2] = $belanja_rek1_bln2;
@@ -651,19 +651,19 @@ class LaporanController extends Controller
                     $belanja_rek2_bln0 = $sekolah->belanjas()->ta($ta)->rekening($item->id)->whereMonth('tanggal', $bulan[0])->sum('nilai');
                     $belanja_rek2_bln1 = $sekolah->belanjas()->ta($ta)->rekening($item->id)->whereMonth('tanggal', $bulan[1])->sum('nilai');
                     $belanja_rek2_bln2 = $sekolah->belanjas()->ta($ta)->rekening($item->id)->whereMonth('tanggal', $bulan[2])->sum('nilai');
-                    
+
                     $belanja_barangjasa[$key][0] = $belanja_rek2_bln0;
                     $belanja_barangjasa[$key][1] = $belanja_rek2_bln1;
                     $belanja_barangjasa[$key][2] = $belanja_rek2_bln2;
                     // $belanja_barangjasa[$key][3] = $item->nama_rekening." (".$item->parent->kode_rekening.".".$item->kode_rekening.")";
                     // $belanja_barangjasa[$key][4] = $item->id;
                     break;
-                
+
                 default:
                     $belanja_rek345_bln0 = $sekolah->belanjas()->ta($ta)->rekening($item->id)->whereMonth('tanggal', $bulan[0])->sum('nilai');
                     $belanja_rek345_bln1 = $sekolah->belanjas()->ta($ta)->rekening($item->id)->whereMonth('tanggal', $bulan[1])->sum('nilai');
                     $belanja_rek345_bln2 = $sekolah->belanjas()->ta($ta)->rekening($item->id)->whereMonth('tanggal', $bulan[2])->sum('nilai');
-                    
+
                     $belanja_modal[$key][0] = $belanja_rek345_bln0;
                     $belanja_modal[$key][1] = $belanja_rek345_bln1;
                     $belanja_modal[$key][2] = $belanja_rek345_bln2;
@@ -720,7 +720,7 @@ class LaporanController extends Controller
         header("Content-Disposition: attachment; filename= ".$file."");
         header('Content-Type: application/excel');
         return $documento;
-        
+
     }
 
     public function k7kabv2()
@@ -744,14 +744,14 @@ class LaporanController extends Controller
 
         $fromDate = Carbon::createFromFormat("!Y-n-j", $ta."-".($bulan_awal)."-1");
         $tillDate = Carbon::createFromFormat("!Y-n-j", $ta."-".($bulan_akhir)."-1")->endOfMonth();
-        
+
         $periode= $fromDate->locale('id_ID')->isoFormat('LL')." - ".$tillDate->locale('id_ID')->isoFormat('LL');
         // return $periode;
-        
+
         $saldo_periodelalu=0;
         if ($bulan_awal == 1) {
             $saldo_periodelalu= $sekolah->pendapatans()
-            ->where('sumber','SILPA BOS')
+            ->where('tanggal', $ta.'-01-01')
             ->sum('nominal');
         }
         else if ($bulan_awal>1) {
@@ -773,7 +773,7 @@ class LaporanController extends Controller
         $belanja_barangjasa= array();
         $belanja_modal= array();
 
-        $rek = KodeRekening::whereNotNull('parent_id')->orderBy('parent_id')->get();
+        $rek = KodeRekening::whereNotNull('parent_id')->where('active',1)->orderBy('parent_id')->get();
 
         foreach ($rek as $key => $item) {
             $belanjaperrekening = Auth::user()->belanjas()->ta($ta)
@@ -783,24 +783,24 @@ class LaporanController extends Controller
             switch ($item->parent_id) {
                 case 1:
                     $belanja_rek1 = $belanjaperrekening->sum('nilai');
-                    
+
                     $belanja_pegawai[$key][0] = $belanja_rek1;
                     break;
 
                 case 2:
                     $belanja_rek2 = $belanjaperrekening->sum('nilai');
-                    
+
                     $belanja_barangjasa[$key][0] = $belanja_rek2;
                     break;
-                
+
                 default:
                     $belanja_rek345 = $belanjaperrekening->sum('nilai');
-                    
+
                     $belanja_modal[$key][0] = $belanja_rek345;
                     break;
             }
         }
-        // return $belanja_pegawai;
+//         return $belanja_modal;
 
         // Excel
         $spreadsheet = IOFactory::load('storage/format/k7_kab2.xlsx');
@@ -817,7 +817,7 @@ class LaporanController extends Controller
         $worksheet->getCell('ta')->setValue($ta);
         $worksheet->getCell('penerimaan_periodesekarang')->setValue($penerimaan_periodesekarang);
         $worksheet->getCell('saldo_periodelalu')->setValue($saldo_periodelalu);
-        
+
         $worksheet->fromArray(
             $belanja_pegawai,
             null,
@@ -874,13 +874,13 @@ class LaporanController extends Controller
                 # code...
                 $twhuruf= "IV";
                 break;
-            
+
             default:
                 # code...
                 $twhuruf="-";
                 break;
         }
-        $sub_judul="TRIWULAN ".$twhuruf." TAHUN ANGGARAN ".$ta;
+        $sub_judul="CATURWULAN ".$twhuruf." TAHUN ANGGARAN ".$ta;
 
         $nama_sekolah= $sekolah->name;
         $nama_kepsek= $sekolah->nama_kepsek;
@@ -907,7 +907,7 @@ class LaporanController extends Controller
             // $barang_modal[$key]['jumlah']= null;
             // $barang_modal[$key]['jenis_modal']= null;
         }
-        
+
         // return $barang_modal;
         // Excel
         $spreadsheet = IOFactory::load('storage/format/belanja_modal.xlsx');
@@ -926,7 +926,7 @@ class LaporanController extends Controller
         );
 
         $spreadsheet->getActiveSheet()->setAutoFilter('B9:Q209');
-        
+
         $autoFilter = $spreadsheet->getActiveSheet()->getAutoFilter();
         $columnFilter = $autoFilter->getColumn('Q');
         $columnFilter->createRule()
@@ -941,7 +941,7 @@ class LaporanController extends Controller
         $writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
         $temp_file = tempnam(sys_get_temp_dir(), 'Excel');
         $writer->save($temp_file);
-        $file= 'B_Modal_tw_'.$triwulan."-".$sekolah->npsn.'.xlsx';
+        $file= 'B_Modal_cw_'.$triwulan."-".$sekolah->npsn.'.xlsx';
         $documento = file_get_contents($temp_file);
         unlink($temp_file);  // delete file tmp
         header("Content-Disposition: attachment; filename= ".$file."");
@@ -979,7 +979,7 @@ class LaporanController extends Controller
                 # code...
                 $twhuruf= "IV";
                 break;
-            
+
             default:
                 # code...
                 $twhuruf="-";
@@ -1007,7 +1007,7 @@ class LaporanController extends Controller
         $nama_kecamatan= $sekolah->kecamatan->nama_kecamatan;
 
         $persediaans = $sekolah->persediaans()->get();
-        
+
         $persediaan_all = array();
         $pengeluaran_persediaan = array();
         $kode_jenis = array();
@@ -1028,23 +1028,23 @@ class LaporanController extends Controller
 
             // ikiyo
             if ($triwulan > 1) {
-                for ($i=3; $i > 0; $i--) { 
+                for ($i=3; $i > 0; $i--) {
                     $saldo= $persediaan->stok_awals()
                         ->where('periode', Carbon::createFromFormat("!Y-n-j", $ta."-".($bulan_sebelumnya[$i])."-1")->startOfMonth())->get();
                     if ($saldo->isNotEmpty()) {
                         break;
                     }
-                }   
+                }
                 $saldo= $saldo->sum('stok');
             }
             else{
                 $saldo = 0;
             }
-            
+
             // return AwalTriwulan(($triwulan),$ta)->format('Y-m-d');//$saldo;
 
             $persediaan_all[$key]['saldo'] = $saldo;
-            
+
             $penerimaan_1 = 0;
             $penerimaan_2 = 0;
             $penerimaan_3 = 0;
@@ -1076,7 +1076,7 @@ class LaporanController extends Controller
             $persediaan_all[$key]['penerimaan_1'] = $penerimaan_1;
             $persediaan_all[$key]['penerimaan_2'] = $penerimaan_2;
             $persediaan_all[$key]['penerimaan_3'] = $penerimaan_3;
-            
+
             $pengeluaran_persediaan[$key]['pengeluaran_1'] = $pengeluaran_1;
             $pengeluaran_persediaan[$key]['pengeluaran_2'] = $pengeluaran_2;
             $pengeluaran_persediaan[$key]['pengeluaran_3'] = $pengeluaran_3;
@@ -1088,7 +1088,7 @@ class LaporanController extends Controller
     	// Excel
         $spreadsheet = IOFactory::load('storage/format/belanja_persediaan1.xlsx');
         $worksheet = $spreadsheet->getActiveSheet();
-        
+
         $worksheet->getCell('nama_sekolah')->setValue($nama_sekolah);
         $worksheet->getCell('nama_kecamatan')->setValue($nama_kecamatan);
         $worksheet->getCell('ta')->setValue($ta);
@@ -1118,7 +1118,7 @@ class LaporanController extends Controller
         );
 
         $spreadsheet->getActiveSheet()->setAutoFilter('B9:AA409');
-        
+
         $autoFilter = $spreadsheet->getActiveSheet()->getAutoFilter();
         $columnFilter = $autoFilter->getColumn('AA');
         $columnFilter->createRule()
@@ -1158,7 +1158,7 @@ class LaporanController extends Controller
         $nama_kecamatan= $sekolah->kecamatan->nama_kecamatan;
 
         $persediaans = $sekolah->persediaans()->get();
-        
+
         $persediaan_all = array();
         $pengeluaran_persediaan = array();
         $kode_jenis = array();
@@ -1173,24 +1173,24 @@ class LaporanController extends Controller
 
             // ikiyo
             /*if ($triwulan > 1) {
-                for ($i=3; $i > 0; $i--) { 
+                for ($i=3; $i > 0; $i--) {
                     $saldo= $persediaan->stok_awals()
                         ->where('periode', Carbon::createFromFormat("!Y-n-j", $ta."-".($bulan_sebelumnya[$i])."-1")->startOfMonth())->get();
                     if ($saldo->isNotEmpty()) {
                         break;
                     }
-                }   
+                }
                 $saldo= $saldo->sum('stok');
             }
             else{
                 $saldo = 0;
             }*/
             $saldo = 0;
-            
+
             // return AwalTriwulan(($triwulan),$ta)->format('Y-m-d');//$saldo;
 
             $persediaan_all[$key]['saldo'] = $saldo;
-            
+
             $penerimaan_1 = 0;
             $penerimaan_2 = 0;
             $penerimaan_3 = 0;
@@ -1218,27 +1218,27 @@ class LaporanController extends Controller
             $pengeluaran_11 = 0;
             $pengeluaran_12 = 0;
 
-            for ($i=0; $i < 12 ; $i++) { 
+            for ($i=0; $i < 12 ; $i++) {
                 $trx_masuk_bulan = "trx_masuk_".($i+1);
-                $$trx_masuk_bulan = PersediaanTrx::npsn($npsn)->ta($ta)->in()->persediaanId($persediaan->id)->whereMonth('tanggal', ($i+1))->sum('qty');  
-            
+                $$trx_masuk_bulan = PersediaanTrx::npsn($npsn)->ta($ta)->in()->persediaanId($persediaan->id)->whereMonth('tanggal', ($i+1))->sum('qty');
+
                 $belanja_bulan = "belanja_".($i+1);
                 $$belanja_bulan = BelanjaPersediaan::npsn($npsn)->ta($ta)->bulan(($i+1))->persediaanId($persediaan->id)->sum('qty');
-                
+
                 $penerimaan_bulan = "penerimaan_".($i+1);
                 $$penerimaan_bulan += $$trx_masuk_bulan + $$belanja_bulan;
-            
+
                 $persediaan_all[$key][$penerimaan_bulan] = $$penerimaan_bulan;
-            
+
                 $trx_keluar_bulan = "trx_keluar_".($i+1);
                 $$trx_keluar_bulan = PersediaanTrx::npsn($npsn)->ta($ta)->out()->persediaanId($persediaan->id)->whereMonth('tanggal', ($i+1))->sum('qty');
-            
+
                 $pengeluaran_bulan = "pengeluaran_".($i+1);
                 $$pengeluaran_bulan += $$trx_keluar_bulan;
 
                 $pengeluaran_persediaan[$key][$pengeluaran_bulan] = $$pengeluaran_bulan;
-            
-            
+
+
             }
 
             // return $penerimaan_1;
@@ -1253,11 +1253,11 @@ class LaporanController extends Controller
             // $pengeluaran_1 += $trx_keluar_1;
             // $pengeluaran_2 += $trx_keluar_2;
             // $pengeluaran_3 += $trx_keluar_3;
-            
+
             // $pengeluaran_persediaan[$key]['pengeluaran_1'] = $pengeluaran_1;
             // $pengeluaran_persediaan[$key]['pengeluaran_2'] = $pengeluaran_2;
             // $pengeluaran_persediaan[$key]['pengeluaran_3'] = $pengeluaran_3;
-        
+
         }
         // return $kode_jenis;
         // return $persediaan_all;
@@ -1266,7 +1266,7 @@ class LaporanController extends Controller
         // Excel
         $spreadsheet = IOFactory::load('storage/format/belanja_persediaan_tahun.xlsx');
         $worksheet = $spreadsheet->getActiveSheet();
-        
+
         $worksheet->getCell('nama_sekolah')->setValue($nama_sekolah);
         $worksheet->getCell('nama_kecamatan')->setValue($nama_kecamatan);
         $worksheet->getCell('ta')->setValue($ta);
@@ -1296,7 +1296,7 @@ class LaporanController extends Controller
         );
 
         $spreadsheet->getActiveSheet()->setAutoFilter('B9:CC409');
-        
+
         $autoFilter = $spreadsheet->getActiveSheet()->getAutoFilter();
         $columnFilter = $autoFilter->getColumn('CC');
         $columnFilter->createRule()
@@ -1416,7 +1416,7 @@ class LaporanController extends Controller
                 $kodebku[$i] .= $belanja->rka->rekening->kode_rekening."/";
                 $kodebku[$i] .= $belanja->rka->kp->kode_komponen;
                 $uraian[$i]   = $belanja->nama;
-                $nominalbelanja[$i] = $item->belanja->nilai; 
+                $nominalbelanja[$i] = $item->belanja->nilai;
                 $nomorbukti[$i] = $belanja->nomor;
 
                 $bku_content[$i+1][0]= $item->tanggal->locale('id_ID')->isoFormat('DD MMM YY');
@@ -1446,7 +1446,7 @@ class LaporanController extends Controller
                     $bku_content[$i+1][3]= 'Menyetorkan PPN';
                     $bku_content[$i+1][4]= 0;
                     $bku_content[$i+1][5]= $item->belanja->ppn;
-                    $i++; 
+                    $i++;
                 }
 
                 if (($item->belanja->pph21)!=0) {
@@ -1468,7 +1468,7 @@ class LaporanController extends Controller
                     $bku_content[$i+1][3]= 'Menyetorkan PPh 21';
                     $bku_content[$i+1][4]= 0;
                     $bku_content[$i+1][5]= $item->belanja->pph21;
-                    $i++; 
+                    $i++;
                 }
 
                 if (($item->belanja->pph23)!=0) {
@@ -1490,7 +1490,7 @@ class LaporanController extends Controller
                     $bku_content[$i+1][3]= 'Menyetorkan PPh 23';
                     $bku_content[$i+1][4]= 0;
                     $bku_content[$i+1][5]= $item->belanja->pph23;
-                    $i++; 
+                    $i++;
                 }
             }
 
@@ -1515,10 +1515,10 @@ class LaporanController extends Controller
                         case 'Setor Kembali':
                             $uraian[$i] = 'Setor Sisa Kas';
                             break;
-                        
+
                         default:
                             $uraian[$i] = 'Bunga';
-                            break;   
+                            break;
                     }
 
                     $nominalpendapatan[$i] = $item->kas_trx_detail->nominal;
@@ -1550,7 +1550,7 @@ class LaporanController extends Controller
         $worksheet->getCell('saldo_akhir')->setValue($saldo_akhir);
         $worksheet->getCell('saldo_tunai')->setValue($saldo_tunai);
         $worksheet->getCell('saldo_bank')->setValue($saldo_bank);
-              
+
         $worksheet->fromArray(
             $bku_content,
             NULL,
@@ -1558,7 +1558,7 @@ class LaporanController extends Controller
         );
 
         $spreadsheet->getActiveSheet()->setAutoFilter('B11:I411');
-        
+
         $autoFilter = $spreadsheet->getActiveSheet()->getAutoFilter();
         $columnFilter = $autoFilter->getColumn('I');
         $columnFilter->createRule()
@@ -1664,7 +1664,7 @@ class LaporanController extends Controller
                     $kodebku[$i] .= $belanja->rka->rekening->kode_rekening."/";
                     $kodebku[$i] .= $belanja->rka->kp->kode_komponen;
                     $uraian[$i]   = $belanja->nama;
-                    $nominalbelanja[$i] = $item->belanja->nilai; 
+                    $nominalbelanja[$i] = $item->belanja->nilai;
                     $nomorbukti[$i] = $belanja->nomor;
 
                     $bku_content[$i+1][0]= $item->tanggal->locale('id_ID')->isoFormat('DD MMM YY');
@@ -1694,7 +1694,7 @@ class LaporanController extends Controller
                         $bku_content[$i+1][3]= 'Menyetorkan PPN';
                         $bku_content[$i+1][4]= 0;
                         $bku_content[$i+1][5]= $item->belanja->ppn;
-                        $i++; 
+                        $i++;
                     }*/
 
                     /*if (($item->belanja->pph21)!=0) {
@@ -1716,7 +1716,7 @@ class LaporanController extends Controller
                         $bku_content[$i+1][3]= 'Menyetorkan PPh 21';
                         $bku_content[$i+1][4]= 0;
                         $bku_content[$i+1][5]= $item->belanja->pph21;
-                        $i++; 
+                        $i++;
                     }*/
 
                     /*if (($item->belanja->pph23)!=0) {
@@ -1738,7 +1738,7 @@ class LaporanController extends Controller
                         $bku_content[$i+1][3]= 'Menyetorkan PPh 23';
                         $bku_content[$i+1][4]= 0;
                         $bku_content[$i+1][5]= $item->belanja->pph23;
-                        $i++; 
+                        $i++;
                     }*/
                 }
             }
@@ -1751,7 +1751,7 @@ class LaporanController extends Controller
                         $kodebku[$i] = "Pendapatan ".$item->pendapatan->sumber;
                         $uraian[$i] = $item->pendapatan->keterangan;
                         $nominalpendapatan[$i] = $item->pendapatan->nominal;
-                        
+
                         $bku_content[$i+1][0]= $item->tanggal->locale('id_ID')->isoFormat('DD MMM YY');
                         $bku_content[$i+1][1]= $kodebku[$i];
                         $bku_content[$i+1][2]= $nomorbukti[$i];
@@ -1775,7 +1775,7 @@ class LaporanController extends Controller
                             $uraian[$i] = 'Setor Sisa Kas';
                             $nominalpendapatan[$i] = $item->kas_trx_detail->nominal;
                             break;
-                        
+
                         default:
                             $uraian[$i] = 'Bunga';
                             $nominalpendapatan[$i] = $item->kas_trx_detail->nominal;
@@ -1795,7 +1795,7 @@ class LaporanController extends Controller
                     $bku_content[$i+1][5]= $nominalbelanja[$i];
                 }
 
-                
+
 
                 $i++;
             }
@@ -1812,8 +1812,8 @@ class LaporanController extends Controller
         $worksheet->getCell('nip_kepsek')->setValue($nip_kepsek);
         $worksheet->getCell('nama_bendahara')->setValue($nama_bendahara);
         $worksheet->getCell('nip_bendahara')->setValue($nip_bendahara);
-        
-              
+
+
         $worksheet->fromArray(
             $bku_content,
             NULL,
@@ -1821,7 +1821,7 @@ class LaporanController extends Controller
         );
 
         $spreadsheet->getActiveSheet()->setAutoFilter('B11:I211');
-        
+
         $autoFilter = $spreadsheet->getActiveSheet()->getAutoFilter();
         $columnFilter = $autoFilter->getColumn('I');
         $columnFilter->createRule()
@@ -1927,7 +1927,7 @@ class LaporanController extends Controller
                     $kodebku[$i] .= $belanja->rka->rekening->kode_rekening."/";
                     $kodebku[$i] .= $belanja->rka->kp->kode_komponen;
                     $uraian[$i]   = $belanja->nama;
-                    $nominalbelanja[$i] = $item->belanja->nilai; 
+                    $nominalbelanja[$i] = $item->belanja->nilai;
                     $nomorbukti[$i] = $belanja->nomor;
 
                     $bku_content[$i+1][0]= $item->tanggal->locale('id_ID')->isoFormat('DD MMM YY');
@@ -1957,7 +1957,7 @@ class LaporanController extends Controller
                         $bku_content[$i+1][3]= 'Menyetorkan PPN';
                         $bku_content[$i+1][4]= 0;
                         $bku_content[$i+1][5]= $item->belanja->ppn;
-                        $i++; 
+                        $i++;
                     }*/
 
                     /*if (($item->belanja->pph21)!=0) {
@@ -1979,7 +1979,7 @@ class LaporanController extends Controller
                         $bku_content[$i+1][3]= 'Menyetorkan PPh 21';
                         $bku_content[$i+1][4]= 0;
                         $bku_content[$i+1][5]= $item->belanja->pph21;
-                        $i++; 
+                        $i++;
                     }*/
 
                     /*if (($item->belanja->pph23)!=0) {
@@ -2001,7 +2001,7 @@ class LaporanController extends Controller
                         $bku_content[$i+1][3]= 'Menyetorkan PPh 23';
                         $bku_content[$i+1][4]= 0;
                         $bku_content[$i+1][5]= $item->belanja->pph23;
-                        $i++; 
+                        $i++;
                     }*/
                 }
             }
@@ -2014,7 +2014,7 @@ class LaporanController extends Controller
                         $kodebku[$i] = "Pendapatan ".$item->pendapatan->sumber;
                         $uraian[$i] = $item->pendapatan->keterangan;
                         $nominalpendapatan[$i] = $item->pendapatan->nominal;
-                        
+
                         $bku_content[$i+1][0]= $item->tanggal->locale('id_ID')->isoFormat('DD MMM YY');
                         $bku_content[$i+1][1]= $kodebku[$i];
                         $bku_content[$i+1][2]= $nomorbukti[$i];
@@ -2038,10 +2038,10 @@ class LaporanController extends Controller
                             $uraian[$i] = 'Setor Sisa Kas';
                             $nominalbelanja[$i] = $item->kas_trx_detail->nominal;
                             break;
-                        
+
                         default:
                             $uraian[$i] = 'Bunga';
-                            break;   
+                            break;
                     }
 
                     if ($uraian[$i]== 'Bunga') {
@@ -2056,7 +2056,7 @@ class LaporanController extends Controller
                     $bku_content[$i+1][5]= $nominalbelanja[$i];
                 }
 
-                
+
 
                 $i++;
             }
@@ -2073,8 +2073,8 @@ class LaporanController extends Controller
         $worksheet->getCell('nip_kepsek')->setValue($nip_kepsek);
         $worksheet->getCell('nama_bendahara')->setValue($nama_bendahara);
         $worksheet->getCell('nip_bendahara')->setValue($nip_bendahara);
-        
-              
+
+
         $worksheet->fromArray(
             $bku_content,
             NULL,
@@ -2082,7 +2082,7 @@ class LaporanController extends Controller
         );
 
         $spreadsheet->getActiveSheet()->setAutoFilter('B11:I411');
-        
+
         $autoFilter = $spreadsheet->getActiveSheet()->getAutoFilter();
         $columnFilter = $autoFilter->getColumn('I');
         $columnFilter->createRule()
@@ -2208,7 +2208,7 @@ class LaporanController extends Controller
                     $bku_content[$i+1][3]= 'Menyetorkan PPN';
                     $bku_content[$i+1][4]= 0;
                     $bku_content[$i+1][5]= $item->belanja->ppn;
-                    $i++; 
+                    $i++;
                 }
 
                 if (($item->belanja->pph21)!=0) {
@@ -2230,7 +2230,7 @@ class LaporanController extends Controller
                     $bku_content[$i+1][3]= 'Menyetorkan PPh 21';
                     $bku_content[$i+1][4]= 0;
                     $bku_content[$i+1][5]= $item->belanja->pph21;
-                    $i++; 
+                    $i++;
                 }
 
                 if (($item->belanja->pph23)!=0) {
@@ -2252,7 +2252,7 @@ class LaporanController extends Controller
                     $bku_content[$i+1][3]= 'Menyetorkan PPh 23';
                     $bku_content[$i+1][4]= 0;
                     $bku_content[$i+1][5]= $item->belanja->pph23;
-                    $i++; 
+                    $i++;
                 }
             }
             // $i++;
@@ -2268,8 +2268,8 @@ class LaporanController extends Controller
         $worksheet->getCell('nip_kepsek')->setValue($nip_kepsek);
         $worksheet->getCell('nama_bendahara')->setValue($nama_bendahara);
         $worksheet->getCell('nip_bendahara')->setValue($nip_bendahara);
-        
-              
+
+
         $worksheet->fromArray(
             $bku_content,
             NULL,
@@ -2277,7 +2277,7 @@ class LaporanController extends Controller
         );
 
         $spreadsheet->getActiveSheet()->setAutoFilter('B11:I211');
-        
+
         $autoFilter = $spreadsheet->getActiveSheet()->getAutoFilter();
         $columnFilter = $autoFilter->getColumn('I');
         $columnFilter->createRule()

@@ -72,13 +72,13 @@ select[readonly].select2-hidden-accessible + .select2-container .select2-selecti
                                     </div>
 
                                     <div class="form-group mb-1">
-                                        <label class="m-0" for="triwulan">Triwulan</label>
+                                        <label class="m-0" for="triwulan">Caturwulan</label>
                                         <select id='triwulan' class="form-control" name="triwulan" style="width:100%" required>
-                                            <option>Pilih Triwulan</option>
-                                            <option value="1">Triwulan 1</option>
-                                            <option value="2">Triwulan 2</option>
-                                            <option value="3">Triwulan 3</option>
-                                            <option value="4">Triwulan 4</option>
+                                            <option>Pilih Caturwulan</option>
+                                            <option value="1">Caturwulan 1</option>
+                                            <option value="2">Caturwulan 2</option>
+                                            <option value="3">Caturwulan 3</option>
+                                            {{-- <option value="4">Triwulan 4</option> --}}
                                             
                                         </select>
                                     </div>

@@ -381,15 +381,16 @@ class LaporanController extends Controller
         $ta = $request->cookie('ta');
         $triwulan = $request->triwulan;
 
-        $triwulan1= [1 ,2 ,3 ];
-        $triwulan2= [4 ,5 ,6 ];
-        $triwulan3= [7 ,8 ,9 ];
-        $triwulan4= [10,11,12];
+        $triwulan1= [1 ,2 ,3 ,4 ];
+        $triwulan2= [5 ,6 ,7 ,8 ];
+        $triwulan3= [9 ,10,11,12 ];
+        // $triwulan4= [10,11,12];
 
         $bulan = ${"triwulan".$triwulan};
         $bulan1= IntBulan($bulan[0]);
         $bulan2= IntBulan($bulan[1]);
         $bulan3= IntBulan($bulan[2]);
+        $bulan4= IntBulan($bulan[3]);
 
         if ($request->filled('kecamatan_id')) {
             // return $request->kecamatan_id;
@@ -408,8 +409,8 @@ class LaporanController extends Controller
 
         $filteredSekolah = $sekolah->has('rkas')->get();
         $data = array();
-        $rekening = KodeRekening::whereNotNull('parent_id')->orderBy('parent_id')->get();
-        
+        $rekening = KodeRekening::whereNotNull('parent_id')->where('active',1)->orderBy('parent_id')->get();
+        // return $rekening;
         foreach ($filteredSekolah as $key => $item) {
             $data[$key]['npsn'] = $item->npsn;
             $data[$key]['nama_sekolah'] = $item->name;
@@ -433,10 +434,10 @@ class LaporanController extends Controller
             'B3'
         );
 
-        $spreadsheet->getActiveSheet()->setAutoFilter('A2:FE201');
+        $spreadsheet->getActiveSheet()->setAutoFilter('A2:FV201');
         
         $autoFilter = $spreadsheet->getActiveSheet()->getAutoFilter();
-        $columnFilter = $autoFilter->getColumn('FE');
+        $columnFilter = $autoFilter->getColumn('FV');
         $columnFilter->createRule()
         ->setRule(
             \PhpOffice\PhpSpreadsheet\Worksheet\AutoFilter\Column\Rule::AUTOFILTER_COLUMN_RULE_EQUAL,
@@ -449,7 +450,7 @@ class LaporanController extends Controller
         $writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
         $temp_file = tempnam(sys_get_temp_dir(), 'Excel');
         $writer->save($temp_file);
-        $file= 'Realisasi_TA_'.$ta.'_TW_'.$triwulan.'.xlsx';
+        $file= 'Realisasi_TA_'.$ta.'_CW_'.$triwulan.'.xlsx';
         $documento = file_get_contents($temp_file);
         unlink($temp_file);  // delete file tmp
         header("Content-Disposition: attachment; filename= ".$file."");
@@ -545,7 +546,7 @@ class LaporanController extends Controller
         $writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
         $temp_file = tempnam(sys_get_temp_dir(), 'Excel');
         $writer->save($temp_file);
-        $file= 'B_Modal_TA_'.$ta.'_TW_'.$triwulan.'.xlsx';
+        $file= 'B_Modal_TA_'.$ta.'_CW_'.$triwulan.'.xlsx';
         $documento = file_get_contents($temp_file);
         unlink($temp_file);  // delete file tmp
         header("Content-Disposition: attachment; filename= ".$file."");
@@ -671,7 +672,7 @@ class LaporanController extends Controller
         $writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
         $temp_file = tempnam(sys_get_temp_dir(), 'Excel');
         $writer->save($temp_file);
-        $file= 'Pajak_TA_'.$ta.'_TW_'.$triwulan.'.xlsx';
+        $file= 'Pajak_TA_'.$ta.'_CW_'.$triwulan.'.xlsx';
         $documento = file_get_contents($temp_file);
         unlink($temp_file);  // delete file tmp
         header("Content-Disposition: attachment; filename= ".$file."");
@@ -1156,7 +1157,7 @@ class LaporanController extends Controller
         $triwulan = $request->triwulan;
         
         $judul= "REKAPITULASI REALISASI PENGGUNAAN DANA BOS ".$ta;
-        $periode="PERIODE TANGGAL : ".AwalTriwulan($triwulan, $ta)->locale('id_ID')->isoFormat('LL')." s/d ".AkhirTriwulan($triwulan, $ta)->locale('id_ID')->isoFormat('LL')." (Triwulan ".$triwulan." Tahun ".$ta.")";
+        $periode="PERIODE TANGGAL : ".AwalCaturwulan($triwulan, $ta)->locale('id_ID')->isoFormat('LL')." s/d ".AkhirCaturwulan($triwulan, $ta)->locale('id_ID')->isoFormat('LL')." (Caturwulan ".$triwulan." Tahun ".$ta.")";
         // return $periode;
         $nama_kecamatan=$status=$jenjang= "";
 
@@ -1236,7 +1237,7 @@ class LaporanController extends Controller
         $writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
         $temp_file = tempnam(sys_get_temp_dir(), 'Excel');
         $writer->save($temp_file);
-        $file= 'K8_TA_'.$ta.'_TW_'.$triwulan.'.xlsx';
+        $file= 'K8_TA_'.$ta.'_CW_'.$triwulan.'.xlsx';
         $documento = file_get_contents($temp_file);
         unlink($temp_file);  // delete file tmp
         header("Content-Disposition: attachment; filename= ".$file."");

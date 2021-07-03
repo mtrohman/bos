@@ -434,10 +434,10 @@ class LaporanController extends Controller
             'B3'
         );
 
-        $spreadsheet->getActiveSheet()->setAutoFilter('A2:FV201');
+        $spreadsheet->getActiveSheet()->setAutoFilter('A2:FU201');
         
         $autoFilter = $spreadsheet->getActiveSheet()->getAutoFilter();
-        $columnFilter = $autoFilter->getColumn('FV');
+        $columnFilter = $autoFilter->getColumn('FU');
         $columnFilter->createRule()
         ->setRule(
             \PhpOffice\PhpSpreadsheet\Worksheet\AutoFilter\Column\Rule::AUTOFILTER_COLUMN_RULE_EQUAL,

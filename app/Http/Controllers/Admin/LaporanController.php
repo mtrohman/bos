@@ -492,13 +492,16 @@ class LaporanController extends Controller
         $i=0;
         foreach ($filteredSekolah as $key_sekolah => $item) {
             $belanja= $item->belanjas()->modal()->ta($ta)->triwulan($triwulan)->get();
+            // return $belanja;
             if ($belanja->isNotEmpty()) {
                 $belanjamodal = BelanjaModal::npsn($item->npsn)->ta($ta)->triwulan($triwulan)->get();
                 foreach ($belanjamodal as $key => $modal) {
+                    // return $modal->belanja->tanggal->locale('id_ID')->isoFormat('DD MMM YY');
                     $data[$i]['npsn'] = $item->npsn;
                     $data[$i]['nama_sekolah'] = $item->name;
                     $data[$i]['kecamatan'] = $item->kecamatan->nama_kecamatan;
-                    
+                    $data[$i]['tanggal_bku'] = $modal->belanja->tanggal->locale('id_ID')->isoFormat('DD MMM YY');
+
                     $data[$i]['kode_barang']= $modal->kode_barang->kode_barang;
                     $data[$i]['nama_barang']= $modal->nama_barang;
                     $data[$i]['merek']= $modal->merek;
@@ -530,10 +533,10 @@ class LaporanController extends Controller
             'B3'
         );
 
-        $spreadsheet->getActiveSheet()->setAutoFilter('A2:T305');
+        $spreadsheet->getActiveSheet()->setAutoFilter('A2:U305');
         
         $autoFilter = $spreadsheet->getActiveSheet()->getAutoFilter();
-        $columnFilter = $autoFilter->getColumn('T');
+        $columnFilter = $autoFilter->getColumn('U');
         $columnFilter->createRule()
         ->setRule(
             \PhpOffice\PhpSpreadsheet\Worksheet\AutoFilter\Column\Rule::AUTOFILTER_COLUMN_RULE_EQUAL,

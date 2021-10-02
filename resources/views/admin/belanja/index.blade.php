@@ -29,7 +29,7 @@
                                             <th>Pilihan</th>
                                             <th class="cari">NPSN</th>
                                             <th class="cari">Sekolah</th>
-                                            <th class="cari" width="5">Triwulan</th>
+                                            <th class="cari" width="5">Caturwulan</th>
                                             <th class="cari">Tanggal</th>
                                             <th class="cari" width="5">No Bukti</th>
                                             <th class="cari">Uraian</th>
@@ -47,7 +47,7 @@
                                             <th>Pilihan</th>
                                             <th>NPSN</th>
                                             <th>Sekolah</th>
-                                            <th>Triwulan</th>
+                                            <th>Caturwulan</th>
                                             <th>Tanggal</th>
                                             <th>No Bukti</th>
                                             <th>Uraian</th>

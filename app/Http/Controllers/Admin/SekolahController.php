@@ -58,7 +58,7 @@ class SekolahController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.sekolah.tambah');
     }
 
     /**
@@ -69,7 +69,11 @@ class SekolahController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $sekolah = new Sekolah();
+        $sekolah->fill($request->input());
+        $sekolah->password = Hash::make($sekolah->npsn);
+        $sekolah->save();
+        return redirect()->route('admin.sekolah.index');
     }
 
     /**

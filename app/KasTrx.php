@@ -40,6 +40,15 @@ class KasTrx extends Model
         return $this->hasOne('App\Pendapatan','id','reference_id');
     }
 
+    /*public function scopeModal($query)
+    {
+        return $query->whereHas('rka', function ($qrka) {
+            $qrka->whereHas('rekening', function ($q) {
+                $q->where('jenis','=', 1);
+            });
+        });
+    }*/
+
     public function getNomorBuktiAttribute()
     {
         if($this->io == 'o'){

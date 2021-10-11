@@ -2300,4 +2300,122 @@ class LaporanController extends Controller
         return $documento;
 
     }
+
+    public function rincianobyek()
+    {
+        return view('sekolah.laporan.rincianobyek');
+    }
+
+    public function proses_rincianobyek(Request $request)
+    {
+        $sekolah = Auth::user();
+        $npsn = $sekolah->npsn;
+        $nama_sekolah = $sekolah->name;
+        $nama_kepsek= $sekolah->nama_kepsek;
+        $nip_kepsek= "NIP.".$sekolah->nip_kepsek;
+        $nama_bendahara= $sekolah->nama_bendahara;
+        $nip_bendahara= "NIP.".$sekolah->nip_bendahara;
+        $nama_kecamatan= $sekolah->kecamatan->nama_kecamatan;
+        $desa= (!empty($sekolah->desa)) ? strtoupper($sekolah->desa) : "-" ;
+        $desa_kecamatan=$desa." / ".$nama_kecamatan;
+        $ta = $request->cookie('ta');
+        $triwulan = $request->triwulan;
+
+        $koderekeningexcel = array(
+            "",
+            "5.1.01.88.88.8888/ Belanja Pegawai",
+            "5.1.02.88.88.8888/ Belanja Barang Jasa",
+            "5.2.02.88.88.8888/ Belanja Modal Peralatan dan Mesin",
+            "5.2.05.88.88.8888/ Belanja Modal Aset Tetap Lainnya"
+        );
+
+//        Anggaran Belanja
+        $parent_rekening = $request->parent_rekening;
+        $anggaran_belanja = $sekolah->rkas()->where('ta','=',$ta)->parentRekening($parent_rekening)->sum('jumlah');
+
+        //$rekening_id = $request->rekening_id;
+        //$anggaran_belanja = $sekolah->rkas()->where('ta','=',$ta)->rekeningId($rekening_id)->sum('jumlah');
+
+        $kode_nama_rekening= $koderekeningexcel[$parent_rekening];
+        $judul= "BUKU PEMBANTU RINCIAN OBYEK ".strtoupper(substr($kode_nama_rekening,18));
+        $sub_judul= "PERIODE TANGGAL : ".AwalCaturwulan($triwulan, $ta)->locale('id_ID')->isoFormat('LL')." s/d ".AkhirCaturwulan($triwulan, $ta)->locale('id_ID')->isoFormat('LL')." (Caturwulan ".$triwulan." Tahun ".$ta.")";
+        $awal_caturwulan= AwalCaturwulan($triwulan, $ta)->locale('id_ID')->isoFormat('LL');
+        $uraian_awal= "Anggaran Obyek ".substr($kode_nama_rekening,18)." Awal Caturwulan ".$triwulan." TA ".$ta;
+//        return $anggaran_belanja;
+        $trx = Belanja::npsn($npsn)
+            ->triwulan($triwulan)
+            ->parentRekening($parent_rekening)
+            //->rekening($rekening_id)
+            ->orderBy('tanggal')
+            ->get();
+
+        $sorted = $trx->sort(function($a, $b) {
+            if ($a->tanggal == $b->tanggal)
+            {
+                if ($a->nomor > $b->nomor) return 1;
+            }
+            return $a->tanggal > $b->tanggal ? 1 : -1;
+        });
+
+        $trx= $sorted->values()->all();
+
+//        return $trx;
+
+//        $i = 0;
+//        $a= array();
+        $array_rincian = array();
+        foreach ($trx as $key => $item) {
+            $array_rincian[$key]['tanggal'] = $item->tanggal->locale('id_ID')->isoFormat('LL');
+            $array_rincian[$key]['kode_bku'] = $item->nomor;
+            $array_rincian[$key]['uraian'] = $item->nama;
+            $array_rincian[$key]['realisasi'] = $item->nilai;
+        }
+
+//        return $array_rincian;
+        // Excel
+        $spreadsheet = IOFactory::load('storage/format/rincian_obyek.xlsx');
+        $worksheet = $spreadsheet->getActiveSheet();
+
+        $worksheet->getCell('judul')->setValue($judul);
+        $worksheet->getCell('sub_judul')->setValue($sub_judul);
+        $worksheet->getCell('nama_sekolah')->setValue($nama_sekolah);
+        $worksheet->getCell('desa_kecamatan')->setValue($desa_kecamatan);
+        $worksheet->getCell('nama_kepsek')->setValue($nama_kepsek);
+        $worksheet->getCell('nip_kepsek')->setValue($nip_kepsek);
+        $worksheet->getCell('nama_bendahara')->setValue($nama_bendahara);
+        $worksheet->getCell('nip_bendahara')->setValue($nip_bendahara);
+        $worksheet->getCell('kode_nama_rekening')->setValue($kode_nama_rekening);
+        $worksheet->getCell('anggaran_belanja')->setValue($anggaran_belanja);
+        $worksheet->getCell('awal_caturwulan')->setValue($awal_caturwulan);
+        $worksheet->getCell('uraian_awal')->setValue($uraian_awal);
+
+        $worksheet->fromArray(
+            $array_rincian,
+            null,
+            'A15'
+        );
+
+        $spreadsheet->getActiveSheet()->setAutoFilter('A12:G310');
+
+        $autoFilter = $spreadsheet->getActiveSheet()->getAutoFilter();
+        $columnFilter = $autoFilter->getColumn('G');
+        $columnFilter->createRule()
+            ->setRule(
+                \PhpOffice\PhpSpreadsheet\Worksheet\AutoFilter\Column\Rule::AUTOFILTER_COLUMN_RULE_EQUAL,
+                'A'
+            );
+
+        $autoFilter->showHideRows();
+
+        // Cetak
+        $writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
+        $temp_file = tempnam(sys_get_temp_dir(), 'Excel');
+        $writer->save($temp_file);
+        $file= 'RincianObyek_'.$parent_rekening.'_cw_'.$triwulan."-".$sekolah->npsn.'.xlsx';
+        $documento = file_get_contents($temp_file);
+        unlink($temp_file);  // delete file tmp
+        header("Content-Disposition: attachment; filename= ".$file."");
+        header('Content-Type: application/excel');
+        return $documento;
+    }
 }

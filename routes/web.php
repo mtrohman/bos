@@ -26,12 +26,12 @@ Route::group([
     Route::get('/profil/edit', 'Admin\ProfilController@edit')->name('admin.profil.edit');
     Route::post('/profil/update', 'Admin\ProfilController@update')->name('admin.profil.update');
     Route::get('/password/edit', 'Admin\ProfilController@passwordedit')->name('admin.password.edit');
-    Route::post('/password/update', 'Admin\ProfilController@passwordupdate')->name('admin.password.update'); 
+    Route::post('/password/update', 'Admin\ProfilController@passwordupdate')->name('admin.password.update');
     // End Profil
 
     // Select Data
-    Route::get('/select/kecamatan', 'Admin\Master\SelectDataController@selectKecamatan')->name('admin.select.kecamatan'); 
-    // 
+    Route::get('/select/kecamatan', 'Admin\Master\SelectDataController@selectKecamatan')->name('admin.select.kecamatan');
+    //
 
     // Start Kode Barang
     Route::resource('/kodebarang', 'Admin\Master\KodeBarangController', ['as' => 'admin'])
@@ -78,7 +78,7 @@ Route::group([
 
     Route::resource('/penerimaan', 'Admin\PenerimaanController', ['as' => 'admin'])
     ->except('destroy');
-    Route::get('/penerimaan/delete/{id}', 'Admin\PenerimaanController@destroy')->name('admin.penerimaan.destroy');    
+    Route::get('/penerimaan/delete/{id}', 'Admin\PenerimaanController@destroy')->name('admin.penerimaan.destroy');
 
     Route::get('/saldo', 'Admin\KasController@saldo_index')->name('admin.kas.saldo');
 
@@ -93,7 +93,7 @@ Route::group([
     Route::get('/sekolah/reset/{id}', 'Admin\SekolahController@reset')->name('admin.sekolah.reset');
 
     Route::get('/sekolah/lockrka/{id}', 'Admin\SekolahController@lockrka')->name('admin.sekolah.lockrka');
-    
+
     Route::get('/sekolah/unlockrka/{id}', 'Admin\SekolahController@unlockrka')->name('admin.sekolah.unlockrka');
 
     Route::get('/sekolah/ubahperiode/{id}', 'Admin\SekolahController@ubah_periode')->name('admin.sekolah.ubahperiode');
@@ -101,7 +101,7 @@ Route::group([
 
     Route::get('/sekolah/set/lockrka', 'Admin\SekolahController@set_lockrka')->name('admin.sekolah.set_lockrka');
     Route::get('/sekolah/set/periode', 'Admin\SekolahController@set_periode')->name('admin.sekolah.set_periode');
-    
+
     Route::post('/sekolah/set/proses_lockrka', 'Admin\SekolahController@proses_set_lockrka')->name('admin.sekolah.proses_set_lockrka');
     Route::post('/sekolah/set/proses_periode', 'Admin\SekolahController@proses_set_periode')->name('admin.sekolah.proses_set_periode');
 
@@ -110,7 +110,7 @@ Route::group([
     ->except([
         'destroy'
     ]);
-    
+
     // End Sekolah
 
     // Start Rka
@@ -147,32 +147,32 @@ Route::group([
 
     Route::get('/laporan/rka', 'Admin\LaporanController@rka')->name('admin.laporan.rka');
     Route::post('/proses/rka', 'Admin\LaporanController@proses_rka')->name('admin.proses.rka');
-    
+
     Route::get('/laporan/realisasi', 'Admin\LaporanController@realisasi')->name('admin.laporan.realisasi');
     Route::post('/proses/realisasi', 'Admin\LaporanController@proses_realisasi')->name('admin.proses.realisasi');
-    
+
     Route::get('/laporan/modal', 'Admin\LaporanController@modal')->name('admin.laporan.modal');
     Route::post('/proses/modal', 'Admin\LaporanController@proses_modal')->name('admin.proses.modal');
-    
+
     Route::get('/laporan/persediaan', 'Admin\LaporanController@persediaan')->name('admin.laporan.persediaan');
     Route::post('/proses/persediaan', 'Admin\LaporanController@proses_persediaan')->name('admin.proses.persediaan');
-    
+
     Route::get('/laporan/persediaantahun', 'Admin\LaporanController@persediaan_tahun')->name('admin.laporan.persediaantahun');
     Route::post('/proses/persediaantahun', 'Admin\LaporanController@proses_persediaan_tahun')->name('admin.proses.persediaantahun');
-    
+
 
     Route::get('/laporan/pajak', 'Admin\LaporanController@pajak')->name('admin.laporan.pajak');
     Route::post('/proses/pajak', 'Admin\LaporanController@proses_pajak')->name('admin.proses.pajak');
-    
+
     Route::get('/laporan/k8', 'Admin\LaporanController@k8')->name('admin.laporan.k8');
     Route::post('/proses/k8', 'Admin\LaporanController@proses_k8')->name('admin.proses.k8');
-    
+
     Route::get('/laporan/k8_bulanan', 'Admin\LaporanController@k8_bulanan')->name('admin.laporan.k8_bulanan');
     Route::post('/proses/k8_bulanan', 'Admin\LaporanController@proses_k8_bulanan')->name('admin.proses.k8_bulanan');
-    
+
     Route::get('/laporan/saldo', 'Admin\LaporanController@saldo')->name('admin.laporan.saldo');
     Route::post('/proses/saldo', 'Admin\LaporanController@proses_saldo')->name('admin.proses.saldo');
-    
+
     // End Laporan
 });
 
@@ -377,5 +377,11 @@ Route::group([
     Route::get('/laporan/bukupajak', 'Sekolah\LaporanController@bukupajak')->name('sekolah.laporan.bukupajak');
 
     Route::post('/proses/bukupajak', 'Sekolah\LaporanController@proses_bukupajak')->name('sekolah.proses.bukupajak');
+
+    Route::get('/laporan/rincianobyek', 'Sekolah\LaporanController@rincianobyek')->name('sekolah.laporan.rincianobyek');
+
+    Route::post('/proses/rincianobyek', 'Sekolah\LaporanController@proses_rincianobyek')->name('sekolah.proses.rincianobyek');
+
+
     // End Laporan
 });

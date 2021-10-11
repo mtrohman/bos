@@ -250,6 +250,9 @@
                                     <a href="{{ route('sekolah.laporan.bukupajak') }}" class="menu-item">Buku Pajak</a>
                                 </li>
                                 <li>
+                                    <a href="{{ route('sekolah.laporan.rincianobyek') }}" class="menu-item">Buku Rincian Obyek</a>
+                                </li>
+                                <li>
                                     <a href="{{ route('sekolah.laporan.k7kabv2') }}" class="menu-item">K7 Kab Bulanan</a>
                                 </li>
                                 <li>

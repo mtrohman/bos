@@ -2332,7 +2332,9 @@ class LaporanController extends Controller
 //        Anggaran Belanja
         $parent_rekening = $request->parent_rekening;
         $anggaran_belanja = $sekolah->rkas()->where('ta','=',$ta)->parentRekening($parent_rekening)->sum('jumlah');
-
+        $belanja_sd_tw = $sekolah->belanjas()->ta($ta)->parentRekening($parent_rekening)->sampaiTriwulan($triwulan-1)->sum('nilai');
+        $sisa_anggaran = $anggaran_belanja - $belanja_sd_tw;
+        // return $sisa_anggaran;
         //$rekening_id = $request->rekening_id;
         //$anggaran_belanja = $sekolah->rkas()->where('ta','=',$ta)->rekeningId($rekening_id)->sum('jumlah');
 
@@ -2386,6 +2388,7 @@ class LaporanController extends Controller
         $worksheet->getCell('nip_bendahara')->setValue($nip_bendahara);
         $worksheet->getCell('kode_nama_rekening')->setValue($kode_nama_rekening);
         $worksheet->getCell('anggaran_belanja')->setValue($anggaran_belanja);
+        $worksheet->getCell('sisa_anggaran')->setValue($sisa_anggaran);
         $worksheet->getCell('awal_caturwulan')->setValue($awal_caturwulan);
         $worksheet->getCell('uraian_awal')->setValue($uraian_awal);
 

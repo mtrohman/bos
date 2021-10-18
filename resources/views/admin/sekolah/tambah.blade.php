@@ -58,6 +58,28 @@ select[readonly].select2-hidden-accessible + .select2-container .select2-selecti
 
                                     <div class="row">
                                         <div class="form-group col-12 mb-1">
+                                            <label class="m-0" for="jenjang">Jenjang</label>
+                                            <select class="form-control" name="jenjang" id="jenjang" required>
+                                                <option value="SD">SD</option>
+                                                <option value="SMP">SMP</option>
+                                            </select>
+                                            
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-12 mb-1">
+                                            <label class="m-0" for="status">Status</label>
+                                            <select class="form-control" name="status" id="status" required>
+                                                <option value="Negeri">Negeri</option>
+                                                <option value="Swasta">Swasta</option>
+                                            </select>
+                                            
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-12 mb-1">
                                             <label class="m-0" for="email">Email</label>
                                             <input type="email" id="email" class="form-control" name="email" required placeholder="Masukkan Email" value="">
                                         </div>

@@ -111,6 +111,8 @@ class SekolahController extends Controller
         $user= Sekolah::findOrFail($id);
 
         $user->name = $request->name;
+        $user->jenjang = $request->jenjang;
+        $user->status = $request->status;
         $user->email = $request->email;
         $user->telepon = $request->telepon;
         $user->kecamatan_id = $request->kecamatan_id;

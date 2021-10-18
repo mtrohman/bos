@@ -53,6 +53,28 @@ select[readonly].select2-hidden-accessible + .select2-container .select2-selecti
 
                                     <div class="row">
                                         <div class="form-group col-12 mb-1">
+                                            <label class="m-0" for="jenjang">Jenjang</label>
+                                            <select class="form-control" name="jenjang" id="jenjang" required>
+                                                <option value="SD">SD</option>
+                                                <option value="SMP">SMP</option>
+                                            </select>
+                                            
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-12 mb-1">
+                                            <label class="m-0" for="status">Status</label>
+                                            <select class="form-control" name="status" id="status" required>
+                                                <option value="Negeri">Negeri</option>
+                                                <option value="Swasta">Swasta</option>
+                                            </select>
+                                            
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-12 mb-1">
                                             <label class="m-0" for="email">Email</label>
                                             <input type="email" id="email" class="form-control" name="email" required placeholder="Masukkan Email" value="{{ (isset($user))? $user->email : '' }}">
                                         </div>
@@ -179,10 +201,24 @@ select[readonly].select2-hidden-accessible + .select2-container .select2-selecti
             theme: 'bootstrap4',
         });
 
+        $('#jenjang').select2({
+            placeholder: 'Pilih Jenjang',
+            theme: 'bootstrap4',
+        });
+
+        $('#status').select2({
+            placeholder: 'Pilih Status',
+            theme: 'bootstrap4',
+        });
+
         /* jshint ignore:start */
         @isset ($user)
             var option = new Option('{{$user->kecamatan->nama_kecamatan}}' , '{{$user->kecamatan_id}}', true, true);
             $('#kecamatan_id').append(option).trigger('change');
+            $('#jenjang').val('{{$user->jenjang}}');
+            $('#jenjang').trigger('change');
+            $('#status').val('{{$user->status}}');
+            $('#status').trigger('change');
         @endisset
 
         @if($errors->any())

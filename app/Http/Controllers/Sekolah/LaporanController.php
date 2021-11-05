@@ -2343,6 +2343,9 @@ class LaporanController extends Controller
         $sub_judul= "PERIODE TANGGAL : ".AwalCaturwulan($triwulan, $ta)->locale('id_ID')->isoFormat('LL')." s/d ".AkhirCaturwulan($triwulan, $ta)->locale('id_ID')->isoFormat('LL')." (Caturwulan ".$triwulan." Tahun ".$ta.")";
         $awal_caturwulan= AwalCaturwulan($triwulan, $ta)->locale('id_ID')->isoFormat('LL');
         $uraian_awal= "Anggaran Obyek ".substr($kode_nama_rekening,18)." Awal Caturwulan ".$triwulan." TA ".$ta;
+        $tanggal = AkhirCaturwulan($triwulan, $ta);
+        $tempat_tanggal = "Kab. Semarang, ".$tanggal->locale('id_ID')->isoFormat('LL');
+        // return $tempat_tanggal;
 //        return $anggaran_belanja;
         $trx = Belanja::npsn($npsn)
             ->triwulan($triwulan)
@@ -2391,6 +2394,7 @@ class LaporanController extends Controller
         $worksheet->getCell('sisa_anggaran')->setValue($sisa_anggaran);
         $worksheet->getCell('awal_caturwulan')->setValue($awal_caturwulan);
         $worksheet->getCell('uraian_awal')->setValue($uraian_awal);
+        $worksheet->getCell('tempat_tanggal')->setValue($tempat_tanggal);
 
         $worksheet->fromArray(
             $array_rincian,

@@ -117,7 +117,7 @@
                 { data: 'alokasi_tw1', name: 'alokasi_tw1' },
                 { data: 'alokasi_tw2', name: 'alokasi_tw2' },
                 { data: 'alokasi_tw3', name: 'alokasi_tw3' },
-                { data: 'alokasi_tw4', name: 'alokasi_tw4' },
+                // { data: 'alokasi_tw4', name: 'alokasi_tw4' },
                 
             ],
             initComplete: function () {

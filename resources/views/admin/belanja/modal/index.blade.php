@@ -39,7 +39,7 @@ tr.shown td.details-control {
                                             <th>Pilihan</th>
                                             <th class="cari">NPSN</th>
                                             <th class="cari">Sekolah</th>
-                                            <th class="cari" width="5">TW</th>
+                                            <th class="cari" width="5">CW</th>
                                             <th class="cari">Tanggal</th>
                                             <th class="cari" width="5">No Bukti</th>
                                             <th class="cari">Uraian</th>
@@ -56,7 +56,7 @@ tr.shown td.details-control {
                                             <th>Pilihan</th>
                                             <th>NPSN</th>
                                             <th>Sekolah</th>
-                                            <th>TW</th>
+                                            <th>CW</th>
                                             <th>Tanggal</th>
                                             <th>No Bukti</th>
                                             <th>Uraian</th>

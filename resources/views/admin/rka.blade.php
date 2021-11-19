@@ -39,10 +39,10 @@
                                             <th>Satuan</th>
                                             <th>Harga</th>
                                             <th>Jumlah</th>
-                                            <th>TW1</th>
-                                            <th>TW2</th>
-                                            <th>TW3</th>
-                                            <th>TW4</th>
+                                            <th>CW1</th>
+                                            <th>CW2</th>
+                                            <th>CW3</th>
+                                            {{-- <th>TW4</th> --}}
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -60,10 +60,10 @@
                                             <th>Satuan</th>
                                             <th>Harga</th>
                                             <th>Jumlah</th>
-                                            <th>TW1</th>
-                                            <th>TW2</th>
-                                            <th>TW3</th>
-                                            <th>TW4</th>
+                                            <th>CW1</th>
+                                            <th>CW2</th>
+                                            <th>CW3</th>
+                                            {{-- <th>TW4</th> --}}
                                         </tr>
                                     </tfoot>
                                 </table>
